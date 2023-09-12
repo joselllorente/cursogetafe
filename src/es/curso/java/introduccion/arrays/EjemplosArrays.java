@@ -4,7 +4,7 @@ public class EjemplosArrays {
 
 	public static void main(String[] args) {
 		
-		String nombre = "Raúl";
+		String nombre = "Raúl"; 
 		//Si ya conocemos los valores
 		String [] nombres = {"n1","n2","n3","n4","n5"};
 		//System.out.println(nombres.length);

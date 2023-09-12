@@ -1,5 +1,6 @@
 package es.curso.java.introduccion.arrays;
 
+
 public class ArraysBidimensionales {
 
 	public static void main(String[] args) {
