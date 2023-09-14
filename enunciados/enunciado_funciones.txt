@@ -12,4 +12,7 @@ String [] juntaDatos (String texto, int numRepeticiones)
 #Compleja: metemos en el array los valores del texto que llega eliminando un caracter en cada repetecion
 EJ. texto="Hola", numRepeticiones=3  => {Hola, Hol, Ho}
 
+Crear clase Utilidades o Utils y crearla en el paquete utils
++ pideDatoTexto método para pedir un String por consola a partir de un texto y que devuelva el valor seleccionado  
++ pideDatoNumerico método para pedir un int por consola a partir de un texto y que devuelva el valor seleccionado
 
