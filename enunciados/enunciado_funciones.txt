@@ -16,3 +16,11 @@ Crear clase Utilidades o Utils y crearla en el paquete utils
 + pideDatoTexto método para pedir un String por consola a partir de un texto y que devuelva el valor seleccionado  
 + pideDatoNumerico método para pedir un int por consola a partir de un texto y que devuelva el valor seleccionado
 
++Método que le pasamos el espacio en km recorrido por un vehiculo 
+y el tiempo en minutos en que ha recorrido ese espacio y nos dice a que velocidad
+va el vehiculo
+
+
+
+
+
