@@ -1,0 +1,15 @@
+Ejercicio 1:
+main(){
+
+}
+
+int calculaEdad (String anioNacimiento)
+
+void pintaTablaMultiplicar (int numero)
+
+String [] juntaDatos (String texto, int numRepeticiones)
+#Facil, devolver el texto tantas veces como indique el numRepeticiones
+#Compleja: metemos en el array los valores del texto que llega eliminando un caracter en cada repetecion
+EJ. texto="Hola", numRepeticiones=3  => {Hola, Hol, Ho}
+
+
