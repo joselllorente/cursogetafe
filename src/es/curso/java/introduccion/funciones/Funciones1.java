@@ -15,15 +15,25 @@ public class Funciones1 {
 		Funciones1 f1 = new Funciones1();
 		String msg = "Hola";
 		Scanner scan = new Scanner(System.in);
-		scan.nextLine();
+		//scan.nextLine();
 		
 		Math.random();
 		metodoEstatico();
-		f1.metodo1();
+		metodo1();
 		metodoEstatico();
 		Funciones2.metodo3();
-		Funciones2 f2 = new Funciones2();
-		f2.metodo4();
+		
+		//Estan las clases en el mismo paquete
+		Funciones2.metodo4();
+		
+		String texto = metodo6();
+		System.out.println(texto);
+		//System.out.println(metodo6());
+		
+		String textoPar = "asdasdasd";
+		boolean numeroPar = numeroParCaracteres(textoPar);
+		String mensaje = numeroPar?"Es par":"Es impar";
+		System.out.println(mensaje + " con "+ textoPar.length() + " caracteres");
 	}
 
 	// Declaración de un método
@@ -37,7 +47,7 @@ public class Funciones1 {
 	// diferentes paquetes tendrán acceso
 	
 	// 2. static
-	void metodo1 () {
+	static void metodo1 () {
 		System.out.println("Metodo1");
 		metodoEstatico();
 	}
@@ -45,5 +55,32 @@ public class Funciones1 {
 	static void metodoEstatico () {
 		System.out.println("Metodo Estático");
 	}
+	
+	
+	//3. Devolución de objetos
+	// - void: no devuelve nada
+	// - objeto o tipo primitivo: return 
+	static String metodo6 () {
+		String mensaje = "Hola";
+		
+		return mensaje;
+	}
+	
+	
+	static boolean numeroParCaracteres(String cadena) {
+		int numCaracteres = cadena.length();
+		boolean esPar = true;
+		if (numCaracteres%2!=0) {
+			esPar = false;
+			//return false;
+		}else {
+			//return true;
+		}
+		
+		return esPar;
+		
+		//return cadena.length()%2==0;
+	}
+	
 
 }
