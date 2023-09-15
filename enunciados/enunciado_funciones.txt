@@ -20,6 +20,11 @@ Crear clase Utilidades o Utils y crearla en el paquete utils
 y el tiempo en minutos en que ha recorrido ese espacio y nos dice a que velocidad
 va el vehiculo
 
++ Método pintarMenu() le vamos a pasar un texto o un array de Strings 
+y ambos van a pintar el menu, va a pedir la opcion al usuario 
+y va a devolver la opcion seleccionada
+
+
 
 
 

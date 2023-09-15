@@ -11,19 +11,40 @@ public class Ejercicio {
 		pintaTablaMultiplicar(numero_mio);
 		
 		
-		Scanner scan = new Scanner(System.in);
-		double espacio = scan.nextDouble();
-		scan = new Scanner(System.in);
-		int tiempo = scan.nextInt();
-		calculaVelocidad(espacio , tiempo);
-
+//		Scanner scan = new Scanner(System.in);
+//		double espacio = scan.nextDouble();
+//		scan = new Scanner(System.in);
+//		int tiempo = scan.nextInt();
+//		calculaVelocidad(espacio , tiempo);
+//		int numeroResultado= calculaVelocidad(100, 50);
+//		System.out.println(numeroResultado);
+//		
+//		int resultado2 = numeroResultado*3;
+		
+		int edad = calculaEdad("2021");
+		System.out.println("La edad es de "+edad);
+	}
+	
+	/**
+	 * 
+	 * @param anio
+	 * @return
+	 */
+	public static int calculaEdad (String anio) {
+		final int anioActual = 2023;
+		int edad = 0;
+		int anioRecibido = Integer.parseInt(anio);
+		edad = anioActual-anioRecibido;
+		
+		
+		return edad;
 	}
 	
 	
-	
-	public static void calculaVelocidad(double distancia, int tiempo) {
-		
+	public static int calculaVelocidad(double distancia, int tiempo) {
+		int var = 0;
 		System.out.println("Velocidad: "+distancia/tiempo);
+		return var;
 	}
 	
 	public static void pintaTablaMultiplicar (int numero) {
