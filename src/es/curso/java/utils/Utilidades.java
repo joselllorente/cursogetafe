@@ -22,5 +22,27 @@ public class Utilidades {
 		return reply;
 	}
 	
+	public static int pintarMenu(String menu) {
+		
+		return pintarMenu(menu, "Introduce una opción", "\n");
+	}
+	
+	
+	public static int pintarMenu(String menu, String pregunta, String caracterSeparacion) {
+		
+		
+		return pintarMenu(menu.split(caracterSeparacion),pregunta);
+	}
+	
+	
+	public static int pintarMenu(String[] menu, String pregunta) {
+		for (String opcion : menu) {
+			System.out.println(opcion);
+		}
+		//Pido la opción del menú
+		int opcion = pideDatoNumerico(pregunta);
+		
+		return opcion;
+	}
 	
 }
