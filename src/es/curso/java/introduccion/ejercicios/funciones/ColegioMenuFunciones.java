@@ -20,10 +20,6 @@ public class ColegioMenuFunciones {
 
 	public static void main(String[] args) {
 		
-		Scanner scan = new Scanner(System.in);
-//		System.out.println("Introduce el número de aulas del colegio");
-//		int numAulas = scan.nextInt();
-		
 		int numAulas = Utilidades.pideDatoNumerico("Introduce el número de aulas del colegio");
 		String [][] colegio = new String[numAulas][];
 		dimensionarColegio(colegio);
