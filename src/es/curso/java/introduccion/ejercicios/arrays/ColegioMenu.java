@@ -36,6 +36,7 @@ public class ColegioMenu {
 			System.out.println("5. Borrar Alumno");
 			System.out.println("6. Salir");
 			
+			
 			scan = new Scanner(System.in);
 			opcion = scan.nextInt();
 			
