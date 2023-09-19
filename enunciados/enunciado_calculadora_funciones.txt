@@ -1,0 +1,16 @@
+Creamos Menú
+
+1. Suma
+2. Resta
+3. Multiplicación
+4. División
+5. Científica (difícil) --> Nuevo menú
+							1. Potencia
+							2. Raiz cuadrada
+							3. Seno
+							4. Coseno
+					   <--	5. Volver
+6. Apagar 
+
+Que operación quieres realizar:
+1- Pedir numero, el numero que se introduzca se va a sumar 
