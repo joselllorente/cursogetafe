@@ -1,0 +1,36 @@
+Crear la clase alumno (POJO - bean)
+Atributos de instancia:
+	+ dni
+	+ nombre
+	+ apellidos
+	+ nota
+
+3 constructores
+	+ 1 vacio
+	+ 1 para inicializar dni, nombre y apellidos
+	+ 1 para inicializar dni, nombre, apellidos, nota
+	
+metodo
+	+ estudiar()
+		0 ->	el alumno nombre no ha estudiado nada
+		<5 ha estudiado poco
+		5-9 ha estudiado mucho
+		10 	Es un genio
+	
+	
+========================================
+Clase AlumnoMain
+main ()
+	3 objetos de tipo alumno
+		+ 1 usando el const. vacio --> luego dar la informacion
+		+ 1 usando (dni, nombre, apellidos)
+		+ 1 usando (dni, nombre, apellidos, nota)
+		
+Sencilla:	Llamar de cada objeto al metodo estudiar
+
+Complicada: Meter a todos los alumnos en un array, 
+	crear método que reciba un array de alumnos y muestre la información de todos los que han aprobado 
+
+		
+
+

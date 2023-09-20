@@ -2,6 +2,8 @@
 public class Test {
 
 	public static void main(String[] args) {
+		boolean x = 3 > 2 && 6 < 10 || true;
+		
 		//System.out.println(Math.random());
 		System.out.println((int)(Math.random()*6)+1);
 		
