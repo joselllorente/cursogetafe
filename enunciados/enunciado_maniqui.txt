@@ -1,0 +1,50 @@
+Clase Boton
+	+ id
+	+ forma
+	+ color
+	+ tamanio
+	
+Clase Pantalon
+	+ id
+	+ color
+	+ talla
+	+ precio
+	+ Boton
+	
+	
+Clase Camisa
+	+ id
+	+ color
+	+ talla
+	+ precio
+	+ [] Boton
+	
+Clase Vestido
+	+ id
+	+ color
+	+ talla
+	+ precio
+	
+Clase Maniqui
+	+ id
+	+ Vestido
+	+ Pantalon
+	+ Camisa
+
+	
+	desvestir () en el cual le quitarías toda la ropa
+	
+	vestir() -> con camisa y pantalón o con vestido
+	
+	
+Clase escaparate
+	+ main () --> 2 maniquies 
+					- desnudo --> vestir()
+					- vestido --> Camisa y pantalón
+					
+					
+	+ mostrarEscaparate() al cual hay que pasar los maniquies 
+		y tenemos que mostrar por cada maniqui la ropa que llevan
+		
+		
+	+ mostrarPrecioDeLaRopa	
