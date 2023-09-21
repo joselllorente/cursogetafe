@@ -3,15 +3,16 @@ package es.curso.java.poo.ejercicios;
 public class Alumno {
 
 	//Variables de instancia
-	String dni;
-	String nombre;
-	String apellidos;
-	double nota;
+	private String dni;
+	private String nombre;
+	private String apellidos;
+	private double nota;
+	private boolean vip;
 	
 	//Constructores
-	public Alumno () {
-		
-	}
+//	public Alumno () {
+//		
+//	}
 	
 	public Alumno (String dni, String nombre, String apellidos) {
 		this.dni = dni;
@@ -24,7 +25,45 @@ public class Alumno {
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.nota = nota;
+		if (this.nota>9) {
+			vip = true;
+		}
 	}
+	
+	//GETTER Y SETTER
+	public String getDni() {
+		return dni;
+	}
+
+//	public void setDni(String dni) {
+//		this.dni = dni;
+//	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellidos() {
+		return apellidos;
+	}
+
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
+	}
+
+	public double getNota() {
+		return nota;
+	}
+
+	public void setNota(double nota) {
+		this.nota = nota;
+	}	
+	
+	
 	
 	//Métodos
 	public void estudiar () {
@@ -38,5 +77,7 @@ public class Alumno {
 		}else {
 			System.out.println("Es un genio");
 		}
-	}	
+	}
+
+	
 }
