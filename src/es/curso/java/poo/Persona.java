@@ -11,10 +11,13 @@ public class Persona {
 	int edad;
 	
 	public Persona() {
+		//this("Juan");
 		this.nombre = "Juan";
+		
 	}
 	
 	public Persona(String nombre) {
+		
 		this.nombre = nombre;
 	}
 	

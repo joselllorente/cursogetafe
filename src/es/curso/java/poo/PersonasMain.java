@@ -11,6 +11,8 @@ public class PersonasMain {
 		String texto = "Hola";
 		
 		Persona p1 = new Persona();
+		System.out.println(p1);
+		
 		System.out.println(p1.nombre);
 		System.out.println(p1.edad);
 		p1.nombre = "Eva";
