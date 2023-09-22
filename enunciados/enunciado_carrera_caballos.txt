@@ -1,0 +1,56 @@
+Clase Caballo
+	+ id
+	+ nombre
+	+ numero
+	+ edad (5-20)
+	+ velocidad (40-80)
+	+ peso (200-400)
+	+ ??
+	
+	correr 
+		(simular avance del caballo)
+		velocidad*(random(1-20))-peso*(random(1-3))-edad*(random(1-3))
+		"Caballo x avanza z metros"
+		
+		
+Clase GranPremio
+	id
+	nombre
+	Carrera [] carreras
+
+	
+Clase Carrera
+	+ id
+	+ nombre
+	+ Caballo[]
+	+ distancia
+	
+	iniciarCarrera()
+		todos los caballos asignados a la carrera se pongan a correr
+		
+		//Devolver caballo ganador
+	
+Apostante
+	+ nombre
+	+ saldo
+	+ apuesta
+	
+	
+Casa de apuestas
+	main()
+		Crear Caballos
+		Crear Carreras
+		Crear Gran Premio
+		
+		Dos apostantes, 
+			+ por cada carrera que apueste por un caballo
+			+ importe que quiere apostar
+			+ Se inicia la carrera
+			+ Se indica el caballo ganador de la carrera
+			+ si el apostante gana se multiplica x5 lo que ha apostado
+		
+		Cuando terminan todas las carreras indicamos el saldo de cada apostante
+		
+	
+	
+	
