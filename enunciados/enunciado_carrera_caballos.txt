@@ -42,6 +42,15 @@ Casa de apuestas
 		Crear Carreras
 		Crear Gran Premio
 		
+		//Mas sencillo
+		Mostrar todos los datos del gran premio,
+			+ Nombre
+			+ Numero de carreras
+			+ Por cada carrera 
+				- Cuantos caballos participan
+				- Nombre y dorsal de todos los caballos
+		
+		//Mas compleja
 		Dos apostantes, 
 			+ por cada carrera que apueste por un caballo
 			+ importe que quiere apostar
