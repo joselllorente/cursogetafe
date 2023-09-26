@@ -1,0 +1,34 @@
+Producto
+	id
+	nombre
+	precio
+	tipo
+	
+Cliente
+	id
+	nombre
+	carritoCompra []
+	vip
+	
+
+Cajera
+	id
+	nombre
+	
+	
+Supermercado
+	nombre
+	cajeras
+	
+	main
+	
+	abrirSupermercado() --> se crean todos los objetos
+	3 clientes --> añadirProductos al carrito
+	2 cajeras --> cobrar a los clientes
+	cada cliente tiene que pagar el importe de la compra
+	
+	
+	
+	
+
+

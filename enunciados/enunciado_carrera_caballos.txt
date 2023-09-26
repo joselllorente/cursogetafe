@@ -12,13 +12,7 @@ Clase Caballo
 		velocidad*(random(1-20))-peso*(random(1-3))-edad*(random(1-3))
 		"Caballo x avanza z metros"
 		
-		
-Clase GranPremio
-	id
-	nombre
-	Carrera [] carreras
 
-	
 Clase Carrera
 	+ id
 	+ nombre
@@ -29,6 +23,12 @@ Clase Carrera
 		todos los caballos asignados a la carrera se pongan a correr
 		
 		//Devolver caballo ganador
+	
+Clase GranPremio
+	id
+	nombre
+	Carrera [] carreras
+
 	
 Apostante
 	+ nombre
