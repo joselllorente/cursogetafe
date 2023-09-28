@@ -56,26 +56,22 @@ public class Carrera {
 				caballo.correr();
 				if(caballo.getAvance()>=this.distancia) {
 					System.out.println("El caballo con nombre "
-							+ caballo.getNombre() + " y número " + " ha ganado");
+							+ caballo.getNombre() + " y número " + caballo.getNumero() + " ha ganado");
 					hayGanador = true;
 					caballoGanador = caballo;
 					break;
 				}
 			}
 		}
+		resetearCaballos();
 		return caballoGanador.getNumero();
 	}
 	
-	public int encontrarCaballo(int numeroCaballo) {
-		int encontrado=0;
-		for(int i=0;i<this.caballos.length;i++) {
-			if(this.caballos[i].getNumero()==numeroCaballo) {
-				encontrado=1;
-				break;
-			}
+	public void resetearCaballos() {
+		for (Caballo caballo : caballos) {
+			caballo.reseteaAvance();
 		}
-		return encontrado;
-	} 
+	}
 
 
 }

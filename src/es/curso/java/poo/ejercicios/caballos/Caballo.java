@@ -89,22 +89,26 @@ public class Caballo {
 	}
 
 	public void correr() {
-		double avanceCaballo = 0;
+		double avance = 0;
 
 		Random rd1 = new Random();
 		int randomVelocidad = rd1.nextInt(1, trampa?20:2);
 		int randomPeso = rd1.nextInt(1, 3);
 		int randomEdad = rd1.nextInt(1, 3);
 
-		avanceCaballo = this.velocidad * randomVelocidad 
+		avance = this.velocidad * randomVelocidad 
 				- this.peso * randomPeso 
 				- this.edad * randomEdad;
 		
 		System.out.println("El caballo "+ nombre + " ha avanzado "+ 
-		(avanceCaballo > 0 ? avanceCaballo : 0));
+		(avance > 0 ? avance : 0));
 		
-		this.avance += avanceCaballo > 0 ? avanceCaballo : 0;
+		this.avance += avance > 0 ? avance : 0;
 		
+	}
+	
+	public void reseteaAvance(){
+		this.avance = 0;
 	}
 
 }

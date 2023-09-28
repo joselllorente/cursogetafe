@@ -21,7 +21,7 @@ public class GranPremio {
 		
 	}
 	
-	private GranPremio(long id, String nombre, Carrera[] carreras) {
+	GranPremio(long id, String nombre, Carrera[] carreras) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -52,11 +52,37 @@ public class GranPremio {
 		this.carreras = carreras;
 	}
 	
-	private void empezarGranPremio() {
+	void empezarGranPremio() {
+		System.out.println("Empezando el gran premio " + this.nombre);
+		//Creo los apostantes
+		Apostante apostante1 = new Apostante(0,"Apostante1",1000);
+		Apostante apostante2 = new Apostante(1,"Apostante2",1000);
+		
 		for (Carrera carrera : carreras) {
-			carrera.iniciarCarrera();
+			System.out.println("Empezando la carrera "+carrera.getNombre());
+			int importeApostante1 = apostante1.apostar(carrera.getCaballos());			
+			int importeApostante2 = apostante2.apostar(carrera.getCaballos());
+			
+			int caballoGanador = carrera.iniciarCarrera();
+			
+			if (caballoGanador==apostante1.getApuesta()) {
+				System.out.println("El apostante "+ apostante1.getNombre() + " ha ganado");
+				apostante1.actualizaSaldo(importeApostante1*5);;
+			}
+			
+			if (caballoGanador==apostante2.getApuesta()) {
+				System.out.println("El apostante "+ apostante2.getNombre() + " ha ganado");
+				apostante2.actualizaSaldo(importeApostante2*5);;
+			}
 		}
+		
+		System.out.println("Se han disputado todas las carreras del Gran Premio");
+		System.out.println("El apostante " + apostante1.getNombre() + " tiene "+ apostante1.getSaldo());
+		System.out.println("El apostante " + apostante2.getNombre() + " tiene "+ apostante2.getSaldo());
+
 	}
 	
 	
+	
 }
+
