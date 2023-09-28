@@ -10,12 +10,13 @@ public class CasaDeApuestas {
 
 		Carrera carrera1=new Carrera(1,"getafe ",1000,caballos1);
 		Carrera carrera2=new Carrera(2,"getafe2 ",2000,caballos1);
+		Carrera carrera3=new Carrera(3,"getafe3 ",2000,caballos1);
 		Carrera [] carreras = {carrera1,carrera2};
 		
 		GranPremio gp = new GranPremio(1,"Gran Prix Getafe",carreras);
-		//Creo los apostantes
-		Apostante apostante1 = new Apostante(0,"Apostante1",1000);
-		Apostante apostante2 = new Apostante(1,"Apostante2",1000);
+//		//Creo los apostantes
+//		Apostante apostante1 = new Apostante(0,"Apostante1",1000);
+//		Apostante apostante2 = new Apostante(1,"Apostante2",1000);
 
 		gp.empezarGranPremio();
 

@@ -46,7 +46,9 @@ public class Apostante {
 			this.apuesta = Utilidades.pideDatoNumerico(this.nombre + " por qué número de caballo deseas apostar");
 			importeApostado = Utilidades.pideDatoNumerico("Cuánto deseas apostar, tienes "+ this.saldo);
 			this.saldo -= importeApostado;
-		} 
+		}else {
+			System.out.println("El apostante "+ this.nombre + " no tiene saldo para realizar la apuesta");
+		}
 		return importeApostado;
 	}
 	

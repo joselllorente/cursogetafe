@@ -7,7 +7,7 @@ Producto
 Cliente
 	id
 	nombre
-	carritoCompra []
+	carritoCompra [10]
 	vip
 	
 
@@ -24,7 +24,7 @@ Supermercado
 	
 	abrirSupermercado() --> se crean todos los objetos
 	3 clientes --> añadirProductos al carrito
-	2 cajeras --> cobrar a los clientes
+	2 cajeras --> cobrar a los clientes (si el cliente es vip hacer un 15% descuento)
 	cada cliente tiene que pagar el importe de la compra
 	
 	

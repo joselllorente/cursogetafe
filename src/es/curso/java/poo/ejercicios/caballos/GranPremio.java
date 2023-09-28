@@ -58,16 +58,18 @@ public class GranPremio {
 		Apostante apostante1 = new Apostante(0,"Apostante1",1000);
 		Apostante apostante2 = new Apostante(1,"Apostante2",1000);
 		
-		for (Carrera carrera : carreras) {
+		for (Carrera carrera : this.carreras) {
 			System.out.println("Empezando la carrera "+carrera.getNombre());
-			int importeApostante1 = apostante1.apostar(carrera.getCaballos());			
+			
+			Caballo [] caballos = carrera.getCaballos();
+			int importeApostante1 = apostante1.apostar(caballos);			
 			int importeApostante2 = apostante2.apostar(carrera.getCaballos());
 			
 			int caballoGanador = carrera.iniciarCarrera();
 			
 			if (caballoGanador==apostante1.getApuesta()) {
 				System.out.println("El apostante "+ apostante1.getNombre() + " ha ganado");
-				apostante1.actualizaSaldo(importeApostante1*5);;
+				apostante1.actualizaSaldo(importeApostante1*5);
 			}
 			
 			if (caballoGanador==apostante2.getApuesta()) {
