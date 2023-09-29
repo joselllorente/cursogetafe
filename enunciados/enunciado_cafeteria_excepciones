@@ -1,0 +1,25 @@
+TemperatureException
+TooColdTemperatureException
+TooHotTemperatureException
+CoffeCup/TazaCafe
+	-temperatura
+
+ClienteCafeteria
+	-nombre
+	+ tomarTazaCafe (CoffeCup/TazaCafe)
+		- si la taza de café está a mas de 80 grados 
+			-> lanzar TooHotTemperatureException
+		- si la taza de café está a menos de 20 grados 
+			-> lanzar TooColdTemperatureException
+		- El cliente se esta tomando la taza de café a x grados
+	
+Cafeteria
+	- nombre
+	- main()
+	- abrirCafeteria()
+		+ Crear una taza de café con una temperatura aleatoria
+		+ Crear un cliente
+		+ cliente se va a tomar la taza de café
+		+ Si cliente se "queja" se le pone otra taza
+		
+	
