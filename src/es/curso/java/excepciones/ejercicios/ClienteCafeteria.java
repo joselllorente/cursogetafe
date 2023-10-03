@@ -23,8 +23,7 @@ public class ClienteCafeteria {
 	}
 	
 	void tomarTazaCafe (CoffeCup taza) 
-			throws TooHotTemperatureException,
-			TooColdTemperatureException{
+			throws TemperatureException{
 		
 		if (taza.getTemperature()>70) {
 			//TooHotTemperatureException thte = new TooHotTemperatureException();

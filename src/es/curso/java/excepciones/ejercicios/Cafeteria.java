@@ -37,6 +37,10 @@ public class Cafeteria {
 				clienteSatisfecho = false;
 				System.out.println("El cliente se ha quejado el café estaba muy frio");
 				continue;
+			}catch (TemperatureException e) {
+				clienteSatisfecho = false;
+				System.out.println("El cliente se ha quejado el café estaba muy frio");
+				continue;
 			}finally {
 				System.out.println("POR AQUI PASO SIEMPRE");
 				
