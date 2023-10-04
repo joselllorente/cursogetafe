@@ -1,0 +1,43 @@
+clase Instrumento
+	nombre
+	tipo
+	
+	afinar() --> Afinando instrumento nombre
+	tocar() --> Tocando instrumento nombre
+	
+Clase Guitarra hereda de Instrumento
+	numCuerdas
+	
+	afinar() --> Afinando guitarra	
+	
+Clase GuitarraElectrica hereda de Guitarr
+	potencia
+	
+	tocar () --> Tocando muy alto
+	
+Clase Piano hereda de Instrumento
+	numeroOctavas
+	tipoPiano
+
+	afinar() --> Afinando Piano
+
+Clase Tambor hereda de Instrumento
+	material
+	
+	afinar() --> Afinando Tambor
+	
+	aporrear() --> Aporreando Tambor
+	
+	
+BandaMusica
+	main ()--> empezarConcierto() se crea un objeto de cada tipo
+	
+	afinarInstrumentos(), se le pasan todos los instrumentos en un único parámetro
+		+ se ponen todos los instrumentos a afinar
+		
+	tocarInstrumentos(), se le pasan todos los instrumentos en un único parámetro
+		+ se ponen todos los instrumentos a tocar excepto el tambor que se aporrea
+			
+	
+	
+	
