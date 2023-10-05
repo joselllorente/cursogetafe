@@ -10,10 +10,10 @@ Clase Guitarra hereda de Instrumento
 	
 	afinar() --> Afinando guitarra	
 	
-Clase GuitarraElectrica hereda de Guitarr
+Clase GuitarraElectrica hereda de Guitarra
 	potencia
 	
-	tocar () --> Tocando muy alto
+	tocar () --> Tocando muy alto //
 	
 Clase Piano hereda de Instrumento
 	numeroOctavas
@@ -30,13 +30,14 @@ Clase Tambor hereda de Instrumento
 	
 	
 BandaMusica
-	main ()--> empezarConcierto() se crea un objeto de cada tipo
+	main ()--> empezarConcierto() 
+		+ se crea un objeto de cada tipo
 	
-	afinarInstrumentos(), se le pasan todos los instrumentos en un único parámetro
-		+ se ponen todos los instrumentos a afinar
+		+afinarInstrumentos(), se le pasan todos los instrumentos en un único parámetro
+			+ se ponen todos los instrumentos a afinar
 		
-	tocarInstrumentos(), se le pasan todos los instrumentos en un único parámetro
-		+ se ponen todos los instrumentos a tocar excepto el tambor que se aporrea
+		+tocarInstrumentos(), se le pasan todos los instrumentos en un único parámetro
+			+ se ponen todos los instrumentos a tocar excepto el tambor que se aporrea
 			
 	
 	
