@@ -33,7 +33,7 @@ BandaMusica
 	main ()--> empezarConcierto() 
 		+ se crea un objeto de cada tipo
 	
-		+afinarInstrumentos(), se le pasan todos los instrumentos en un único parámetro
+		+afinarInstrumentos(), 
 			+ se ponen todos los instrumentos a afinar
 		
 		+tocarInstrumentos(), se le pasan todos los instrumentos en un único parámetro
