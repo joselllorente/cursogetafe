@@ -92,7 +92,7 @@ public class Caballo {
 		double avance = 0;
 
 		Random rd1 = new Random();
-		int randomVelocidad = rd1.nextInt(1, trampa?20:2);
+		int randomVelocidad = rd1.nextInt(20);
 		int randomPeso = rd1.nextInt(1, 3);
 		int randomEdad = rd1.nextInt(1, 3);
 
