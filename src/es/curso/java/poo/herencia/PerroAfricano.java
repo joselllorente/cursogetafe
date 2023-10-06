@@ -10,6 +10,13 @@ public class PerroAfricano extends Animal{
 	public void ladrar() {
 		System.out.println("Esta ladrando");
 	}
+
+	@Override
+	public void beber() {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	
 	
 }

@@ -22,5 +22,15 @@ public class Elefante extends Animal{
 	public void comer() {
 		System.out.println("El elefante "+ getNombre() + " esta comiendo");
 	}
+
+	@Override
+	public void beber() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	
+	
 	
 }

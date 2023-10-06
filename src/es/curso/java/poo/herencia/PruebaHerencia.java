@@ -3,8 +3,8 @@ package es.curso.java.poo.herencia;
 public class PruebaHerencia {
 
 	public static void main(String[] args) {
-		Animal animal = new Animal("Animal1",1);
-		animal.comer();
+//		Animal animal = new Animal("Animal1",1);
+//		animal.comer();
 		
 		Elefante elefante1 = new Elefante("Dumbo",2);
 		elefante1 = null;

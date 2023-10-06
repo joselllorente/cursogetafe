@@ -1,6 +1,6 @@
 package es.curso.java.poo.herencia;
 
-public class Animal {
+public abstract class Animal {
 	
 	private String nombre;
 	private int edad;
@@ -39,6 +39,6 @@ public class Animal {
 		System.out.println("El animal "+ getNombre() + " esta comiendo");
 	}
 	
-	
+	public abstract void beber();
 
 }
