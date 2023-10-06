@@ -9,7 +9,7 @@ public final class Leon extends AnimalCarnivoro {
 
 	@Override
 	public void beber() {
-		super.beber();
+		//super.beber();
 		System.out.println("En el rio");
 		
 	}
