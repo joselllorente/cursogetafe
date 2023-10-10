@@ -11,6 +11,11 @@ public final class Enfermo extends Persona{
 		super(id, nombre, edad);
 		this.enfermedad = enfermedad;
 	}
+	
+	public Enfermo (Paciente paciente, String enfermedad) {
+		super(paciente.getId(), paciente.getNombre(), paciente.getEdad());
+		this.enfermedad = enfermedad;
+	}
 
 	public String getEnfermedad() {
 		return enfermedad;

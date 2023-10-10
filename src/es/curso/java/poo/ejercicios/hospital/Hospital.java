@@ -35,11 +35,13 @@ public class Hospital {
 
 		// Fichan los empleados
 		EmpleadosHospital[] empleados = { enfermero1, doctor1 };
-		ficharEmpleados(empleados);
+		//ficharEmpleados(empleados);
 
 		// Comen todas las personas
 		Persona[] personas = { paciente1, paciente2, paciente3, enfermero1, doctor1 };
-		comerPersonas(personas);
+		//comerPersonas(personas);
+		
+		pasarConsultas(enfermero1, doctor1);
 
 //		System.out.println("==============================================");
 //
@@ -96,5 +98,60 @@ public class Hospital {
 			}
 		}
 	}
+	
+	private void pasarConsultas(Enfermero enfermero, Doctor doctor) {
+		
+		int i=0;
+		for (Paciente paciente : salaEspera) {
+			//Enfermero atiende paciente
+			Paciente pacienteConsulta = enfermero.atenderPaciente(paciente);
+			salaEspera[i]=null;
+			i++;
+			
+			//
+			if (pacienteConsulta!=null) {
+				Enfermo enfermo = doctor.diagnosticarPaciente(pacienteConsulta);
+				
+				if (enfermo!=null) {
+					if(!hospitalizarEnfermo(enfermo)) {
+						System.out.println("No hay habitaciones libres el enfermo es derivado a otro hospital");
+					}
+				}else {
+					System.out.println("El paciente "+ pacienteConsulta.getNombre() + " se va a su casa");
+				}
+				
+			}else {
+				System.out.println("El paciente no tiene nada se va a casa");
+			}
+			
+		}
+		
+		//enfermero.atenderPaciente(salaEspera);
+		
+		
+//		for (Paciente paciente : salaEspera) {
+//			
+//			enfermero.atenderPaciente(paciente);
+//			
+//		}
+		
+	}
+	
+	private boolean hospitalizarEnfermo(Enfermo enfermo) {
+		for(Habitacion habita : habitaciones) {
+			//La habotación está libre
+			if(habita.getEnfermo()==null) {
+				System.out.println("Enfermo "+enfermo.getNombre() + 
+						" ingresado en la habitación "+habita.getNumero());
+				
+				habita.setEnfermo(enfermo); 
+				return true;
+			}
+		}
+		
+		return false;
+		
+	}
+	
 
 }

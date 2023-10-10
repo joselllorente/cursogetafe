@@ -21,15 +21,24 @@ public class Enfermero extends EmpleadosHospital{
 	public void setPlanta(int planta) {
 		this.planta = planta;
 	}
-
-	public Paciente[] atenderPaciente(Paciente[] salaEspera) {
-		Paciente[] pacientesDeDoctor=new Paciente[salaEspera.length];
+	
+	public Paciente atenderPaciente(Paciente paciente) {
 		
-		for(int i=0;i<salaEspera.length;i++) {
-			pacientesDeDoctor[i]=salaEspera[i];
-			salaEspera[i]=null;
+		if (paciente.getSintomas().length>0) {
+			return paciente;
+		}else {
+			return null;
 		}
-		return pacientesDeDoctor;
 	}
+
+//	public Paciente[] atenderPaciente(Paciente[] salaEspera) {
+//		Paciente[] pacientesDeDoctor=new Paciente[salaEspera.length];
+//		
+//		for(int i=0;i<salaEspera.length;i++) {
+//			pacientesDeDoctor[i]=salaEspera[i];
+//			salaEspera[i]=null;
+//		}
+//		return pacientesDeDoctor;
+//	}
 	
 }

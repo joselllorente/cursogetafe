@@ -27,14 +27,16 @@ public class Doctor extends EmpleadosHospital{
 		this.especialidad = especialidad;
 	}
 
-	public Enfermo diagnosticarPaciente(Persona paciente) {
+	public Enfermo diagnosticarPaciente(Paciente paciente) {
 		Random r=new Random();
 		int numAleatorio= r.nextInt(1,10);
+
 		//System.out.println("El numero aleatorio es: " + numAleatorio);
 		System.out.println("El numero aleatorio es: " + numAleatorio);
-		if(numAleatorio>=8) {
+		if(numAleatorio>=2) {
 			System.out.println("El paciente " + paciente.getNombre() + " esta enfermo");
-			Enfermo enfermo=new Enfermo(paciente.getId(),paciente.getNombre(),paciente.getEdad());
+			Enfermo enfermo = new Enfermo(paciente,"Gripe");
+			
 			return enfermo;
 		}else {
 			System.out.println("El paciente " + paciente.getNombre() + " no esta enfermo");
