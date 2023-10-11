@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Doctor extends EmpleadosHospital{
 	private String especialidad;
-
+	
 //	public Doctor(long id, String nombre, int edad) {
 //		super(id, nombre, edad);
 //	}
