@@ -1,0 +1,44 @@
+Vehiculo implementa SistemaEncendido (no implementan los métodos)
+	-id 
+	-matricula
+	-marca
+
+Coche hereda de Vehiculo
+	- numPuertas
+	
+Moto hereda de Vehiculo
+	- numRuedas	
+
+DispositivoElectronico implementa SistemaEncendido (no implementan los métodos)
+	- id
+	- precio
+	- fabricante
+	
+Movil heredan de DispositivoElectronico
+	- sistemaOperativo
+	
+Television heredan de DispositivoElectronico
+	- hdmi
+	
+Interfaz SistemaEncendido
+	- encender()
+	- apagar()
+	
+
+Usuario
+	- Movil
+	- Moto
+	- Coche
+	- Television
+	
+	
+Clase con main
+	- Un objeto de cada tipo
+	- Un usuario al que le asignamos esos objetos
+	- llamamos al método encender con cada uno de los objetos del usuario 
+
+	- encender() --> Solo se le pasa un parámetro, no puede ser el objeto usuario	
+	
+	
+	
+	
