@@ -1,0 +1,17 @@
+Creamos Lista de alumnos 
+
+Crear 4 alumnos 
+Los metemos en la lista solo si la lista está vacia
+
+--> mostrar info de los alumnos que esten en la lista
+
+Solicitar un dni y si el alumno cuyo dni hemos introducido 
+esta en la lista, lo borramos (si no está indicadlo)
+
+--> mostrar info de los alumnos que esten en la lista
+
+Solicitar un dni y si el alumno cuyo dni hemos introducido 
+esta en la lista, lo vamos a modificar, le cambiamos el nombre
+
+--> mostrar info de los alumnos que esten en la lista
+

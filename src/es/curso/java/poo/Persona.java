@@ -15,12 +15,29 @@ public class Persona {
 		this.nombre = "Juan";
 		
 	}
+
 	
 	public Persona(String nombre) {
 		
 		this.nombre = nombre;
 	}
 	
+	
+	
+	/**
+	 * @return the nombre
+	 */
+	public String getNombre() {
+		return nombre;
+	}
+
+	/**
+	 * @param nombre the nombre to set
+	 */
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
 	//métodos
 	public void correr () {
 		System.out.println("La persona con nombre " + nombre + " y edad " + edad + " esta corriendo");
