@@ -10,12 +10,22 @@ instalaciones/edificios
 TB_FACILITIES
 -Información acerca de las plantas, nombre, categoria, descripción, 
 	GUID (Global Unique identifier), altura.
++ Todas las columnas con comentarios
 
 	id          number, PK, AUTO_INCREMENT
     guid        number(7) UNIQUE,
-    name        varchar2(45) not null,
-    description varchar2(200),
-    category    varchar2(45),
-    address     varchar2(200),
+    name        varchar(45) not null,
+    description varchar(200),
+    category    varchar(45),
+    address     varchar(200),
+    heigth		decimal (5,2)
+    
+    
+    INSERTS 5-6 
+    
+    SELECT
+    
+    SELECT para mostrar todos los facilities que tengan más de 100 m 
+    
     
 
