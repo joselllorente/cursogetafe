@@ -2,8 +2,7 @@ DROP TABLE IF EXISTS Prueba;
 CREATE TABLE Prueba (
 	id INTEGER NOT NULL AUTO_INCREMENT,
 	nombre VARCHAR(50) NOT NULL,
-    cursoId INT(2),
-	cursoId NUMERIC(2),
+    cursoId INTEGER(2),
     importe DECIMAL(4,2),
 	PRIMARY KEY(id)
 );

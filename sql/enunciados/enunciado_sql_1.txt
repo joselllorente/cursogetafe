@@ -1,0 +1,21 @@
+- Creamos base de datos curso
+
+- Creamos nueva conexion a esa base de datos en SQL Developer
+
+BASE DE DATOS
+===================================================================
+Se desea tener una base de datos con la información de 
+instalaciones/edificios 
+
+TB_FACILITIES
+-Información acerca de las plantas, nombre, categoria, descripción, 
+	GUID (Global Unique identifier), altura.
+
+	id          number, PK, AUTO_INCREMENT
+    guid        number(7) UNIQUE,
+    name        varchar2(45) not null,
+    description varchar2(200),
+    category    varchar2(45),
+    address     varchar2(200),
+    
+
