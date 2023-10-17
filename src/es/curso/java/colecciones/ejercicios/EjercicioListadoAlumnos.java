@@ -1,5 +1,7 @@
 package es.curso.java.colecciones.ejercicios;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -9,6 +11,9 @@ import es.curso.java.utils.Utilidades;
 public class EjercicioListadoAlumnos {
 
 	public static void main(String[] args) {
+		List<String> arrayList = Arrays.asList(args);
+		
+		
 		EjercicioListadoAlumnos ela = new EjercicioListadoAlumnos();
 		ela.iniciaEjercicio();
 
@@ -69,6 +74,9 @@ public class EjercicioListadoAlumnos {
 			listaAlumnos.add(alumno1);
 			listaAlumnos.add(alumno4);
 		}
+		
+		List<String> arrayList = Arrays.asList(new String[]{"Rojo","Azul"});
+		
 		return listaAlumnos;
 	}
 	
