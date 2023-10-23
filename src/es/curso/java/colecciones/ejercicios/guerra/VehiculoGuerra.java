@@ -99,14 +99,7 @@ public abstract class VehiculoGuerra implements Tripulable {
 	void setPuntosVida(int puntosVida) {
 		this.puntosVida = puntosVida;
 	}
-	
-	
-	/**
-	 * @param guerreros the guerreros to set
-	 */
-	public void setGuerreros(List<Guerrero> guerreros) {
-		this.guerreros = guerreros;
-	}
+
 	
 	
 	public void embarcarGuerro (Guerrero guerrero) throws UnidadesPermitadasException {
@@ -118,4 +111,9 @@ public abstract class VehiculoGuerra implements Tripulable {
 		}
 
 	}	
+	
+	
+	public boolean tieneVidas() {
+		return this.getPuntosVida()>0;
+	}
 }
