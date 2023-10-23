@@ -18,6 +18,7 @@ public class GuerraMain {
 	 * @param vehiculo
 	 */
 	public void empezarGuerra (VehiculoGuerra vehiculoAjeno) {
+		System.out.println("Empezando la guerra entre " +vehiculoAjeno.getNombre());
 		VehiculoGuerra vehiculoMio = null;
 		try {
 			if (Math.random()>0.5)
@@ -25,9 +26,10 @@ public class GuerraMain {
 			else {
 				vehiculoMio = generaNave();
 			}
+			System.out.println(" y "+vehiculoMio.getNombre());
 			batalla (vehiculoAjeno, vehiculoMio);
 		} catch (LimiteValoresException | UnidadesPermitadasException e) {
-			System.err.println();
+			System.err.println("Ha habido una excepción "+e.getMessage());
 			e.printStackTrace();
 		}
 
@@ -48,7 +50,7 @@ public class GuerraMain {
 	
 	
 	private void batalla (VehiculoGuerra vehiculo1, VehiculoGuerra vehiculo2) {
-		
+		System.out.println("Empieza la batalla");
 		do {
 			
 			//Ataca vehiculo1
@@ -78,6 +80,8 @@ public class GuerraMain {
 		}else {
 			System.out.println("Ha ganado"+vehiculo2.getNombre());
 		}
+		
+		System.out.println("Batalla finalizada");
 	}
 	
 //	private void empezarGuerra () {
@@ -95,7 +99,7 @@ public class GuerraMain {
 		for(Guerrero guerrero : generaGuerreros () ) {
 			nave.embarcarGuerro(guerrero);
 		}
-		
+
 		return nave;
 	}
 	
