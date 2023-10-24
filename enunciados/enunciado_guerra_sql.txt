@@ -1,0 +1,16 @@
+Definimos dos tablas
+
+TB_VEHICULOS_GUERRA
+id (PK)
+nombre
+ataque 
+defensa
+tipo NAVE/Tanque
+
+TB_GUERRERO
+id (PK)
+nombre
+tipo
+fuerza
+resistencia
+vehiculo_id
