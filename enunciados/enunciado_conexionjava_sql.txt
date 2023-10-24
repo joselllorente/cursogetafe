@@ -1,0 +1,6 @@
+Creamos clase Facility con todos los atributos que hay en la tabla de TB_FACILITIES
+
+Cuando recorremos el resultSet hay que crear un objeto de tipo Facility por cada registro de la tabla
+Cada objeto que se crea se debe guardar en una coleccion de tipo Set
+
+Mostrar Cuantos objetos hay en la coleccion 
