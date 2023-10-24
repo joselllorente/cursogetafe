@@ -5,6 +5,10 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+import es.curso.java.ddbb.ejercicios.Facility;
 
 public class ConexionBaseDeDatos {
 
@@ -18,7 +22,7 @@ public class ConexionBaseDeDatos {
 		String url = "jdbc:mysql://localhost:3306/curso?serverTimezone=Europe/Madrid";
 		String username = "root";
 		String password = "password";
-
+		
 		//Connection connection = null;//Conexion con la base de datos
 		//Statement stmt = null;//Lanzar consulta
 		//ResultSet rs = null;//Recoger datos de la consulta
@@ -29,15 +33,18 @@ public class ConexionBaseDeDatos {
 				ResultSet rs = stmt.executeQuery("SELECT * FROM TB_FACILITIES");
 			) {
 
-			
+			Set<Facility> facilities = new LinkedHashSet<Facility>();
 			while (rs.next()) {
-				System.out.println(rs.getLong("id"));
-				System.out.println(rs.getInt("guid"));
-				System.out.println(rs.getString("name"));
-				System.out.println(rs.getString("description"));
-				System.out.println(rs.getString("category"));
-				System.out.println("===============================");
+				long id = rs.getInt("id");
+				
+				Facility facility = new Facility(id,rs.getInt("guid"),rs.getString("name"),
+						rs.getString("description"),rs.getString("category"),rs.getString("address"),
+						rs.getDouble("heigth"));
+			
+				facilities.add(facility);
+				
 			}
+			System.out.println(facilities.size());
 
 		} catch (SQLException e) {
 			System.err.println("Ha habido un error " + e.getMessage());
