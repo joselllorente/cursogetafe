@@ -27,6 +27,7 @@ public class UtilsDataBase {
 
 		if (connection==null) {
 			connection = DriverManager.getConnection(url, userName, password);
+			System.out.println("Conexion establecida");
 		}
 		return connection;
 	}
@@ -35,6 +36,7 @@ public class UtilsDataBase {
 		if (connection!=null) {
 			connection.close();
 			connection=null;
+			System.out.println("Conexion cerrada");
 		}
 	}
 	

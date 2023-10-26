@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import es.curso.java.colecciones.ejercicios.guerra.exceptions.LimiteValoresException;
+import es.curso.java.colecciones.ejercicios.guerra.exceptions.UnidadesPermitadasException;
 import es.curso.java.ddbb.utils.UtilsDataBase;
 
 public class GuerraMainDataBase {
@@ -19,29 +20,40 @@ public class GuerraMainDataBase {
 	}
 	
 	private void empezarGuerra() {
-		getVehiculosGuerreros ();
-		
-		
+		GuerraMain guerra = new GuerraMain();
+		guerra.batalla(getVehiculosGuerreros());
 		
 	}
 	
 	
 	private List<VehiculoGuerra> getVehiculosGuerreros (){
-		
+		List<VehiculoGuerra> vehiculos = null;
 		try {
-			List<VehiculoGuerra> vehiculos = getVehiculos ();
-			for (VehiculoGuerra vehiculo : vehiculos) {
-				System.out.println(vehiculo);
-			}
+			vehiculos = getVehiculos ();
+			reclutamiento ( vehiculos );
+			
+//			for (VehiculoGuerra vehiculo : vehiculos) {
+//				System.out.println(vehiculo);
+//			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (LimiteValoresException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (UnidadesPermitadasException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				UtilsDataBase.cerrarConexion();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
-		return null;
+		return vehiculos;
 	}
 	
 	private List<VehiculoGuerra> getVehiculos () throws SQLException, LimiteValoresException{
@@ -59,18 +71,53 @@ public class GuerraMainDataBase {
 				String nombre = rs.getString("nombre");
 				int ataque = rs.getInt("ataque");
 				int defensa = rs.getInt("defensa");
+				long id = rs.getLong("id");
 				
 				if (tipo.equals("Nave")) {
 					VehiculoGuerra nave = new Nave(nombre,ataque,defensa);
+					nave.setId(id);
 					vehiculos.add(nave);
 				}else {
 					VehiculoGuerra tanque = new Tanque(nombre,ataque,defensa);
+					tanque.setId(id);
 					vehiculos.add(tanque);
 				}
 			} 
 		}
 		
 		return vehiculos;
+	}
+	
+	
+	private void reclutamiento (List<VehiculoGuerra> vehiculos) 
+			throws SQLException, LimiteValoresException, UnidadesPermitadasException{
+		Connection connection = UtilsDataBase.getInstance();
+		
+		try(
+			Statement stmt = connection.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM TB_GUERRERO"); 
+		){
+			
+			while(rs.next()) {
+				String nombre = rs.getString("nombre");
+				int fuerza = rs.getInt("fuerza");
+				int resistencia = rs.getInt("resistencia");
+				int vehiculoId = rs.getInt("vehiculo_id"); 
+				
+				Guerrero guerrero = new Guerrero(nombre, "", fuerza, resistencia);
+				
+				for (VehiculoGuerra vehiculoGuerra : vehiculos) {
+					if (vehiculoGuerra.getId() == vehiculoId) {
+						vehiculoGuerra.embarcarGuerro(guerrero);
+						break;
+					}
+				}
+			} 
+		}
+		
+		
+		
+		//return vehiculos;
 	}
 
 }

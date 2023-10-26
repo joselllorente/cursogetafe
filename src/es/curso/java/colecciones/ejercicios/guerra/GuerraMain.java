@@ -48,6 +48,11 @@ public class GuerraMain {
 		}
 	}
 	
+	public void batalla (List<VehiculoGuerra> vehiculos) {
+		
+		batalla(vehiculos.get(0),vehiculos.get(1));
+		
+	}
 	
 	private void batalla (VehiculoGuerra vehiculo1, VehiculoGuerra vehiculo2) {
 		System.out.println("Empieza la batalla");

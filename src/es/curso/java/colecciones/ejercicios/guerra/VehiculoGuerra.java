@@ -8,11 +8,13 @@ import es.curso.java.colecciones.ejercicios.guerra.exceptions.UnidadesPermitadas
 
 public abstract class VehiculoGuerra implements Tripulable {
 
+	private long id;
 	private String nombre;
 	private int ataque;
 	private int defensa;
 	private List<Guerrero> guerreros = new ArrayList<Guerrero>();
 	private int puntosVida=PUNTOS_VIDA;
+	
 	
 	
 	private VehiculoGuerra (int ataque, int defensa) throws LimiteValoresException {
@@ -99,7 +101,18 @@ public abstract class VehiculoGuerra implements Tripulable {
 	void setPuntosVida(int puntosVida) {
 		this.puntosVida = puntosVida;
 	}
-
+	/**
+	 * @return the id
+	 */
+	public long getId() {
+		return id;
+	}
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(long id) {
+		this.id = id;
+	}
 	
 	
 	public void embarcarGuerro (Guerrero guerrero) throws UnidadesPermitadasException {
@@ -116,4 +129,12 @@ public abstract class VehiculoGuerra implements Tripulable {
 	public boolean tieneVidas() {
 		return this.getPuntosVida()>0;
 	}
+	@Override
+	public String toString() {
+		return "VehiculoGuerra [" + (nombre != null ? "nombre=" + nombre + ", " : "") + "ataque=" + ataque
+				+ ", defensa=" + defensa + ", " + (guerreros != null ? "guerreros=" + guerreros + ", " : "")
+				+ "puntosVida=" + puntosVida + "]";
+	}
+	
+	
 }
