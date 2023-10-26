@@ -65,7 +65,7 @@ public class GuerraMainDataBase {
 			ResultSet rs = stmt.executeQuery("SELECT * FROM TB_VEHICULOS_GUERRA"); 
 		){
 			vehiculos = new ArrayList<VehiculoGuerra>();
-			
+
 			while(rs.next()) {
 				String tipo = rs.getString("tipo");
 				String nombre = rs.getString("nombre");
@@ -102,7 +102,7 @@ public class GuerraMainDataBase {
 				String nombre = rs.getString("nombre");
 				int fuerza = rs.getInt("fuerza");
 				int resistencia = rs.getInt("resistencia");
-				int vehiculoId = rs.getInt("vehiculo_id"); 
+				int vehiculoId = rs.getInt("fk_vehiculo_guerra"); 
 				
 				Guerrero guerrero = new Guerrero(nombre, "", fuerza, resistencia);
 				
