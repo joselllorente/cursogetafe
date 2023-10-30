@@ -19,4 +19,41 @@ Mapa donde la clave es el nombre del colegio y como valor tenemos un listado de 
 - Solicitar DNI y hay que indicar en que colegio se encuentra ese alumno  
 
 
+AVANZADA
+==================================================================
+Sistema de gestión de biblioteca en Java. 
+Necesitas implementar un mapa para realizar un seguimiento 
+de los libros disponibles en la biblioteca. 
 
+Clase Libro:
+	título, 
+	el autor 
+	y el número de copias disponibles.
+	
+	Implementa un constructor y métodos getter y setter para la clase Libro.
+	
+Clase Biblioteca:
+	+ nombre
+	+ HashMap donde la clave es el título del libro y 
+			el valor es una instancia de la clase Libro.
+	Implementa métodos para: 
+		agregar un libro a la biblioteca, 
+		prestar un libro (disminuyendo el número de copias disponibles) 
+		y devolver un libro (aumentando el número de copias disponibles).
+
+Clase Principal:
+
+	Crea una clase principal que permite a los usuarios a partir de un menu
+	interactuar con el sistema de gestión de biblioteca.
+	
+	Permite a los usuarios agregar nuevos libros, prestar libros y devolver libros.
+	Imprime mensajes apropiados para informar a los usuarios 
+	sobre el estado de las operaciones 
+	(por ejemplo, si un libro ha sido prestado con éxito 
+	o si no hay suficientes copias disponibles).
+	
+	
+	
+	
+	
+	
