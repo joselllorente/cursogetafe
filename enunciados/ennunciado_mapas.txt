@@ -3,6 +3,8 @@ FACIL
 Creamos 4 objetos de tipo Alumno
 Creamos un mapa donde la clave sea el dni del Alumno y el valor el objeto
 
+- Mostrar la información de todos los alumnos
+
 - A partir de un dni, mirar si esta el alumno en el mapa 
 y si está devolver la información del alumno
 
