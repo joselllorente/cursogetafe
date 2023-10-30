@@ -1,0 +1,20 @@
+FACIL
+==================================================================
+Creamos 4 objetos de tipo Alumno
+Creamos un mapa donde la clave sea el dni del Alumno y el valor el objeto
+
+- A partir de un dni, mirar si esta el alumno en el mapa 
+y si está devolver la información del alumno
+
+- Devolver la nota media de todos los alumnos
+
+MEDIA
+==================================================================
+Mapa donde la clave es el nombre del colegio y como valor tenemos un listado de alumno
+
+- Mostrar el nombre de cada colegio con todos los alumnos de ese colegio
+
+- Solicitar DNI y hay que indicar en que colegio se encuentra ese alumno  
+
+
+
