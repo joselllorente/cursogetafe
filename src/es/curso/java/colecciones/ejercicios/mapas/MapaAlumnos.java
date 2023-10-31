@@ -1,8 +1,12 @@
 package es.curso.java.colecciones.ejercicios.mapas;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 import es.curso.java.poo.ejercicios.Alumno;
 import es.curso.java.utils.Utilidades;
@@ -11,11 +15,66 @@ public class MapaAlumnos {
 
 	public static void main(String[] args) {
 		MapaAlumnos ma = new MapaAlumnos();
-		ma.inicioEjercicio();
+		//ma.inicioEjercicio1();
+		ma.inicioEjercicio2();
 
 	}
 	
-	public void inicioEjercicio () {
+	public void inicioEjercicio2 () {
+		Map< String , List<Alumno> > mapaColegios = new HashMap< String , List<Alumno> >(); 
+		
+		Alumno[] alumnos = generaAlumnos();
+		
+		List<Alumno> alumnosCole1 = Arrays.asList(alumnos[0],alumnos[1]);
+		List<Alumno> alumnosCole2 = Arrays.asList(alumnos[2],alumnos[3]);
+		
+		mapaColegios.put("colegio1", alumnosCole1);
+		mapaColegios.put("colegio2", alumnosCole2);
+		
+		//Primera manera de mostrar colegio y sus alumnos
+//		Set<String> colegios = mapaColegios.keySet();
+//		for (String colegio : colegios) {
+//			System.out.println("Colegio: "+colegio);
+//			List<Alumno> alumnosCole = mapaColegios.get(colegio);
+//			for (Alumno alumno : alumnosCole) {
+//				System.out.println("\t"+alumno);
+//			}
+//		}
+		
+		//Segunda manera de mostrar colegio y sus alumnos
+		Set<Entry <String,List<Alumno>>> colegioEntry = mapaColegios.entrySet();
+		for (Entry<String, List<Alumno>> entry : colegioEntry) {
+			System.out.println("Colegio "+ entry.getKey() );
+			List<Alumno> alumnosCole = entry.getValue();
+			for (Alumno alumno : alumnosCole) {
+				System.out.println("\t"+alumno);
+			}
+		}
+		
+		
+		//Solicitar DNI y hay que indicar en que colegio se encuentra ese alumno  
+		String dni = Utilidades.pideDatoTexto("Escribe dni a buscar");
+		Set<String> colegios = mapaColegios.keySet();
+		boolean alumnoEncontrado=false;
+		for (String colegio : colegios) {
+			System.out.println("Buscando en colegio "+ colegio);
+			List<Alumno> alumnosCole = mapaColegios.get(colegio);
+			for (Alumno alumno : alumnosCole) {
+				if(dni.equals(alumno.getDni())) {
+					System.out.println("El alumno está en el colegio "+ colegio);
+					alumnoEncontrado=true;
+					break;
+				}
+			}
+			if(alumnoEncontrado)
+				break;
+		}
+		
+		
+		
+	}
+	
+	public void inicioEjercicio1 () {
 		
 		Map<String,Alumno> alumnosMap = new HashMap<String,Alumno>();
 		
