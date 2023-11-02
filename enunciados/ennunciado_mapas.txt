@@ -12,7 +12,8 @@ y si está devolver la información del alumno
 
 MEDIA
 ==================================================================
-Mapa donde la clave es el nombre del colegio y como valor tenemos un listado de alumno
+Mapa donde la clave es el nombre del colegio y 
+como valor tenemos un listado de alumnos
 
 - Mostrar el nombre de cada colegio con todos los alumnos de ese colegio
 
@@ -36,6 +37,7 @@ Clase Biblioteca:
 	+ nombre
 	+ HashMap donde la clave es el título del libro y 
 			el valor es una instancia de la clase Libro.
+			
 	Implementa métodos para: 
 		agregar un libro a la biblioteca, 
 		prestar un libro (disminuyendo el número de copias disponibles) 
