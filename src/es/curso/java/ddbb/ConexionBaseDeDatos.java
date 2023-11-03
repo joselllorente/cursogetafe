@@ -103,7 +103,7 @@ public class ConexionBaseDeDatos {
 	}
 	
 	
-	private void conectaPrepareStatement() {
+	private void selectPrepareStatement() {
 		String url = "jdbc:mysql://localhost:3306/curso?serverTimezone=Europe/Madrid";
 		String username = "root";
 		String password = "password";
@@ -122,7 +122,7 @@ public class ConexionBaseDeDatos {
 			prepareStament = connection.prepareStatement(
 					"SELECT * FROM TB_FACILITIES WHERE ADDRESS=? AND ID=?");
 			prepareStament.setString(1, address);
-			prepareStament.setInt(2, 100);
+			prepareStament.setString(2, "100");
 			
 			
 			rs = prepareStament.executeQuery();
