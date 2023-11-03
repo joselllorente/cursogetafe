@@ -1,0 +1,23 @@
+Vamos a llevar la gestion de los libros de diferentes bibliotecas. 
+De las bibliotecas vamos a poder obtener todos los libros que tienen asociados 
+así como la dirección en la que se encuentran dichas bibliotecas. 
+(Las direcciones se podran aplicar a futuro a otros objetos/entidades)
+
+Primer menu:
+
+Mostrar todas las bibliotecas disponibles
+
+1. Biblioteca1
+2. Biblioteca2
+3. Biblioteca3
+4. Salir
+Seleccione Biblioteca
+
+
+1. Mostrar Info biblioteca -> Nos muestre dirección y nombre de la biblioteca
+2. Mostrar Libros de la biblioteca
+3. Buscar Libro (Facil: Buscar solo por titulo) (Dificil: Preguntar por el campo)
+4. Insertar Libro 
+5. Modificar. Preguntar por titulo si se encuentra, mostrar cada campo de la tabla para preguntar por el valor
+6. Borrar.  Preguntar por titulo si se encuentra se borra
+7. Volver
