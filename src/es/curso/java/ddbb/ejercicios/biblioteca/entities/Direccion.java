@@ -17,6 +17,16 @@ public class Direccion {
 		this.provincia = provincia;
 		this.codPostal = codPostal;
 	}
+	
+	public Direccion(String tipo, String nombre, String ciudad, String provincia, int codPostal) {
+		super();
+		this.tipo = tipo;
+		this.nombre = nombre;
+		this.ciudad = ciudad;
+		this.provincia = provincia;
+		this.codPostal = codPostal;
+	}
+	
 	/**
 	 * @return the id
 	 */
