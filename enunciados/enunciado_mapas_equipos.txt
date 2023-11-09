@@ -1,0 +1,15 @@
+Clase Equipo, 
+	nombre
+	numLigas
+	numChampions
+	
+Clase Jugador
+	nombre
+	edad
+	posicion
+	
+	
+Mapa 2 equipos con 3 jugadores
+
+Mostrar Solo los nombres de los jugadores
+Mostrar la información de un equipo y todos los datos de los jugadores del equipo
