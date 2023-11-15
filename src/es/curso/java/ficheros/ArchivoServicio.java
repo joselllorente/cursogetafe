@@ -64,7 +64,7 @@ public class ArchivoServicio {
         return sb.toString();
     }
 
-    public String leerArchivo2(String nombre){
+    public String leerArchivo2(String nombre){ 
         StringBuilder sb = new StringBuilder();
         File archivo = new File(nombre);
         try (Scanner s = new Scanner(archivo)){
@@ -83,17 +83,24 @@ public class ArchivoServicio {
     
     public void mostrarContenidoDirectorio(String directorio) {
     	File dir = new File(directorio);
-        
+
+    	
         if(dir.isDirectory()) {
         	String[] ficheros = dir.list();
         	for (String nombreFichero : ficheros) {
-				System.out.print(nombreFichero + " ");
-				String nuevoFichero = directorio+nombreFichero;
+				//System.out.print(nombreFichero + " ");
+				String nuevoFichero = directorio+"\\"+nombreFichero;
+				System.out.println(nuevoFichero);
 				File file = new File(nuevoFichero);
+				
 				if(file.isDirectory()) {
-					System.out.println("Es un directorio");
+					//System.out.println("Es un directorio");
 				}else {
-					System.out.println("Es un fichero");
+					if (file.getName().endsWith(".txt")) {
+						System.out.println("Se puede leer:"+file.canRead());
+						System.out.println("TAmaño " +file.length());
+						System.out.println("Es un fichero");
+					}
 				}
 					
 			}
