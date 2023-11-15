@@ -4,13 +4,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import es.curso.java.ddbb.ejercicios.biblioteca.BibliotecaMain;
 import es.curso.java.ddbb.ejercicios.biblioteca.entities.Libro;
 import es.curso.java.ddbb.ejercicios.biblioteca.exceptions.NoResultsException;
 
@@ -141,7 +141,57 @@ public class LibroDAO extends ConexionDAO implements ILibro{
 		insertarLibro(libro.getTitulo(), libro.getAutor(), libro.getIsbn(), idBiblioteca);
 	}
 	
-	
+	public void actualizarLibros(List<Libro> libros, long idBiblioteca, Map<String, String> mapaDatos) throws SQLException {
+		
+		
+		StringBuilder query = new StringBuilder("UPDATE TB_LIBROS SET ");
+		List<String> valores = new LinkedList<String>();
+		if (!mapaDatos.get(TITULO).isEmpty()) {
+			query.append("TITULO = ?, ");
+			valores.add(mapaDatos.get(TITULO));
+		}
+		
+		if (!mapaDatos.get(AUTOR).isEmpty()) {
+			query.append("AUTOR = ?, ");
+			valores.add(mapaDatos.get(AUTOR));
+		}
+		
+		if (!mapaDatos.get(ISBN).isEmpty()) {
+			query.append("ISBN = ?, ");
+			valores.add(mapaDatos.get(ISBN));
+		}
+		
+		query.setLength(query.length()-2);
+		query.append(" WHERE ID IN (?)");
+		logger.debug(query);
+		
+		PreparedStatement ps = this.getConexion().prepareStatement(query.toString());
+		for (int i=1;i<=valores.size(); i++) {
+			ps.setString(i,valores.get(i-1));
+		}
+		
+		ps.setLong(valores.size()+1, 1);
+		
+//		Array array = this.getConexion().createArrayOf("INTEGER", list.toArray());
+//		ps.setArray(valores.size()+1, array);
+		
+//		int i =1;
+//		if (!mapaDatos.get(TITULO).isEmpty()) {
+//			ps.setString(i,mapaDatos.get(TITULO));
+//			i++;
+//		}
+//		if (!mapaDatos.get(AUTOR).isEmpty()) {
+//			ps.setString(i,mapaDatos.get(AUTOR));
+//			i++;
+//		}
+//		if (!mapaDatos.get(ISBN).isEmpty()) {
+//			ps.setString(i,mapaDatos.get(ISBN));
+//			i++;
+//		}
+		
+		int actualizaciones = ps.executeUpdate();
+		logger.debug(actualizaciones);
+	}
 	
 }
 

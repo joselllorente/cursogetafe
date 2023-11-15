@@ -11,6 +11,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import es.curso.java.ddbb.ejercicios.biblioteca.dao.BibliotecaDAO;
+import es.curso.java.ddbb.ejercicios.biblioteca.dao.ILibro;
 import es.curso.java.ddbb.ejercicios.biblioteca.dao.LibroDAO;
 import es.curso.java.ddbb.ejercicios.biblioteca.entities.Biblioteca;
 import es.curso.java.ddbb.ejercicios.biblioteca.entities.Libro;
@@ -74,6 +75,7 @@ public class BibliotecaMain {
 				case 2: mostrarLibrosBiblioteca(biblioteca); break;
 				case 3: buscarLibroBiblioteca(biblioteca); break;
 				case 4: insertarLibroBiblioteca(biblioteca); break;
+				case 5: modificarLibroBiblioteca(biblioteca); break;
 				case 6: borrarLibroBiblioteca(biblioteca); break;
 				case 8: System.out.println("Adios!!!");; break;
 				default: System.out.println("opcion incorrecta");	
@@ -85,6 +87,46 @@ public class BibliotecaMain {
 	public void mostrarInfoBiblioteca(Biblioteca biblioteca) {
 		
 		System.out.println(biblioteca);
+
+		
+	}
+	
+	
+	public void modificarLibroBiblioteca(Biblioteca biblioteca) {
+		logger.debug("Modificando libreo de la biblioteca "+biblioteca.getId());
+		
+		String titulo = Utilidades.pideDatoTexto("Introduce titulo libro");
+		
+		
+		try {
+			LibroDAO libroDAO = new LibroDAO();
+			Map<String, String> campoDatoABuscar = new HashMap<String,String>();
+			campoDatoABuscar.put(ILibro.TITULO,titulo);
+			List<Libro> libros = libroDAO.buscarLibro(biblioteca.getId(),campoDatoABuscar);
+			
+			if (!libros.isEmpty()) {
+				titulo = Utilidades.pideDatoTexto("Introduce nuevo titulo libro");
+				String autor = Utilidades.pideDatoTexto("Introduce nuevo autor libro");
+				String isbn = Utilidades.pideDatoTexto("Introduce nuevo isbn libro");
+				
+				Map<String, String> mapaDatos = new HashMap<String,String>();
+				mapaDatos.put(ILibro.TITULO,titulo.trim());
+				mapaDatos.put(ILibro.AUTOR,autor.trim());
+				mapaDatos.put(ILibro.ISBN,isbn.trim());
+				
+				libroDAO.actualizarLibros(libros,biblioteca.getId(),mapaDatos);
+				
+			}else {
+				logger.warn("El libro con titulo "+titulo+ " no se encuentra en la bibliote "+biblioteca.getId());
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		//
 
 		
 	}

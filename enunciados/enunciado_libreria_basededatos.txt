@@ -18,7 +18,8 @@ Seleccione Biblioteca
 2. Mostrar Libros de la biblioteca (Facil) - Biblioteca - Direccion (Complicada) 
 3. Buscar Libro (Facil: Buscar solo por titulo) (Dificil: Preguntar por el campo)
 4. Insertar Libro 
-5. Modificar. Preguntar por titulo si se encuentra, mostrar cada campo de la tabla para preguntar por el valor
+5. Modificar. Preguntar por titulo si se encuentra, 
+		mostrar cada campo de la tabla para preguntar por el valor
 6. Borrar.  Preguntar por titulo si se encuentra se borra
 7. Calcular precio medio de los libros y cuantos libros hay (de todas las bilbiotecas) 
 	ordenada por precio medio descendente
