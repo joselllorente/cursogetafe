@@ -18,9 +18,10 @@ public class GestionFicheros {
 	
 	public void empiezaEjercicio() {
 		File dir = new File("./enunciados/ficheros/directorios2");
-		//contarJPGs(dir);
-		//logger.info("Hay un total de " + this.contadorJPGs + " fichero .jpg");
+//		contarJPGs(dir);
+//		logger.info("Hay un total de " + this.contadorJPGs + " fichero .jpg");
 		LocalDateTime datetime = LocalDateTime.now();
+		logger.info(datetime);
 		mostrarNombreFicheroAnioActual(dir, String.valueOf(datetime.getYear()));
 		
 	}
@@ -52,7 +53,7 @@ public class GestionFicheros {
 			}else {
 				logger.debug("Encontrado un fichero");
 				if(file.getName().contains(anioActual)) {
-					logger.debug("Encontrado un fichero con el año actual");
+					logger.info("Encontrado un fichero con el año actual");
 					printInfoFile(file);
 				}
 			}
