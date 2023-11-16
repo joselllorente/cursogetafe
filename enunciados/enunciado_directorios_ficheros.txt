@@ -1,0 +1,6 @@
++En todas las carpetas cuantos ficheros jpg hay
+Mostrar el nombre de todos los ficheros en cuyo nombre 
+tengamos el año actual. Intentad obtener el año mediante programación
+Vais a renombrar (asdasd.txt.done) el fichero que tenga en el nombre el año siguiente 
+pero en el mes actual en el que estamos
+Ese fichero renombrado lo vais a mover a un directorio que no existe con el nombre que querais 

@@ -6,7 +6,7 @@ public class EjemploCrearArchivo {
         String nombreArchivo = "./recursos/java2.txt";
 
         ArchivoServicio service = new ArchivoServicio();
-        service.mostrarContenidoDirectorio("C:\\Users\\Tardes");
+        service.mostrarContenidoDirectorio("C:\\Users\\Tardes\\");
         //service.crearArchivo2(nombreArchivo);
-    } 
+    }
 }

@@ -83,16 +83,17 @@ public class ArchivoServicio {
     
     public void mostrarContenidoDirectorio(String directorio) {
     	File dir = new File(directorio);
+    	File file1 = new File(directorio,"fichero1.txt");
+    	File file2 = new File(dir,"fichero1.txt");
 
-    	
+
         if(dir.isDirectory()) {
         	String[] ficheros = dir.list();
         	for (String nombreFichero : ficheros) {
 				//System.out.print(nombreFichero + " ");
-				String nuevoFichero = directorio+"\\"+nombreFichero;
+				String nuevoFichero = directorio+nombreFichero;
 				System.out.println(nuevoFichero);
 				File file = new File(nuevoFichero);
-				
 				if(file.isDirectory()) {
 					//System.out.println("Es un directorio");
 				}else {
