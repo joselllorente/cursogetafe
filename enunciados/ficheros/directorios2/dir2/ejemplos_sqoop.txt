@@ -1,0 +1,95 @@
+Ejemplo de Carga de datos de MySQL a HDFS (compresión: snappy y formato avro)
+$ sqoop import \
+ --connect jdbc:mysql://localhost/mibbdd \
+ --username=root -P \
+ --table=mitabla \
+ --driver=com.mysql.jdbc.Driver \
+ --target-dir=/ej_snappy_avro \
+ --compress \
+ --compression-codec org.apache.hadoop.io.compress.SnappyCodec \ 
+ --as-avrodatafile
+ 
+
+Ejemplo de Carga de datos de MySQL a HDFS (compresión: gzip y formato avro)
+$ sqoop import \
+ --connect jdbc:mysql://localhost/mibbdd \
+ --username=root -P \
+ --table=mitabla \
+ --driver=com.mysql.jdbc.Driver \
+ --target-dir=/ej_gzip_avro \
+ --compress \
+ --compression-codec org.apache.hadoop.io.compress.GzipCodec \
+ --as-avrodatafile
+ 
+
+Ejemplo de Carga de datos de MySQL a HDFS (compresión: BZip2 y formato sequencia)
+$ sqoop import \
+ --connect jdbc:mysql://localhost/mibbdd \
+ --username=root -P \
+ --table=mitabla \
+ --driver=com.mysql.jdbc.Driver \
+ --target-dir=/ej_bzip2_sequence \
+ --compress \
+ --compression-codec org.apache.hadoop.io.compress.BZip2Codec \
+ --as-sequencefile
+ 
+
+Ejemplo de Carga de datos de MySQL a HDFS (restringiendo datos con COLUMNS)
+$ sqoop import \
+ --connect jdbc:mysql://localhost/mibbdd \
+ --username=root -P \
+ --table=mitabla \
+ --driver=com.mysql.jdbc.Driver \
+ --target-dir=/ej_2_columns \
+ --columns nombre,edad
+ 
+
+Ejemplo de Carga de datos de MySQL a HDFS (restringiendo datos con WHERE)
+$ sqoop import \
+ --connect jdbc:mysql://localhost/mibbdd \
+ --username=root -P \
+ --table=mitabla \
+ --driver=com.mysql.jdbc.Driver \
+ --target-dir=/ej_edad_mas_40 \
+ --where "edad > 40"
+ 
+
+Ejemplo de Carga de datos de MySQL a HDFS (carga incremental)
+Con el fin de realizar una inserción incremental necesitamos incluir nuevos datos a la tabla «mitabla», para ello ejecutamos en mysql la sentencia siguiente:
+
+mysql> 
+INSERT INTO mitabla (nombre, edad, salario) VALUES
+        ("Diego", 24, 21000), ("Rosa", 26, 24000), ("Javier", 28, 25000), ("Lorena", 35, 28000), ("Miriam", 42, 30000), ("Patricia", 43, 25000), ("Natalia", 45, 39000);
+Nota: Para realizar la inserción en necesario hacerlo en la bbdd «mibbdd»
+
+Una vez realizada la inserción podemos realizar la inserción incremental a partir del 8 ya que es el primer elemento introducido en la nueva inserción.
+
+$ sqoop import \ 
+ --connect jdbc:mysql://localhost/mibbdd \ 
+ --username=root -P \
+ --table=mitabla \ 
+ --driver=com.mysql.jdbc.Driver \ 
+ --target-dir=/mitabla_hdfs \ 
+ --incremental append \
+ --check-column id \
+ --last-value 8
+ 
+
+Ejemplo de Carga de datos de MySQL a HDFS y consultables desde HIVE
+Con el fin de realizar una inserción de la tabla en la base de datos hive, debemos crear bbdd donde se insertará, para evitar problemas:
+
+hive> CREATE DATABASE mibbddhive;
+Una vez creada la base de datos se está en disposición de ejecutar la consulta:
+
+$ sqoop import \
+ --connect jdbc:mysql://localhost/mibbdd \
+ --username=root -P \
+ --table=mitabla \
+ --driver=com.mysql.jdbc.Driver \
+ --target-dir=/ej_hive \
+ --compress \
+ --compression-codec org.apache.hadoop.io.compress.SnappyCodec \ 
+ --hive-import \
+ --hive-database mihive \ 
+ --create-hive-table \
+ --hive-table ej_tabla_hive

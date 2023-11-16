@@ -1,0 +1,118 @@
+"Departamentos": Esta colección almacenará información sobre cada departamento. Cada documento en esta colección representará un departamento y tendrá un identificador único llamado "departamento_id" y otros campos como "nombre", "ubicación" y "presupuesto".
+
+{
+  "_id": ObjectId("60b62a1c1c8d8e79c74a02a1"),
+  "departamento_id": 1,
+  "nombre": "Ventas",
+  "ubicación": "Nueva York",
+  "presupuesto": 1000000
+}
+
+
+"Proyectos": Esta colección almacenará información sobre cada proyecto. Cada documento en esta colección representará un proyecto y tendrá un identificador único llamado "proyecto_id" y otros campos como "nombre", "fecha_inicio" y "fecha_fin".
+
+{
+  "_id": ObjectId("60b62a3f1c8d8e79c74a02a3"),
+  "proyecto_id": 1,
+  "nombre": "Proyecto A",
+  "fecha_inicio": "2022-01-01",
+  "fecha_fin": "2022-06-30"
+}
+
+
+"Empleados": Esta colección almacenará información sobre cada empleado. Cada documento en esta colección representará un empleado y tendrá un identificador único llamado "empleado_id" y otros campos como "nombre", "edad", "departamento_id" y "proyectos". El campo "departamento_id" se utilizará para establecer la relación entre los empleados y los departamentos.
+
+{
+  "_id": ObjectId("60b62a321c8d8e79c74a02a2"),
+  "empleado_id": 1,
+  "nombre": "Juan",
+  "edad": 30,
+  "departamento_id": 1,
+  "proyectos": [ "Proyecto A", "Proyecto B" ]
+}
+
+
+Para establecer la relación uno a muchos entre los departamentos y los empleados, se utilizará el campo "departamento_id" en la colección "Empleados". Esto permitirá que cada documento de la colección "Empleados" esté asociado con un documento en la colección "Departamentos". Por ejemplo, si queremos obtener todos los empleados del departamento de ventas, podemos hacer una consulta en la colección "Empleados" utilizando el campo "departamento_id" y el valor "1" (que es el identificador del departamento de ventas):
+
+===========================================================================================================================
+=====================================   EJERCICIO RESUELTO PASO A PASO   ==================================================
+===========================================================================================================================
+
+use empresa
+
+db.createCollection("Departamentos")
+
+db.Departamentos.insertOne({
+  departamento_id: 1,
+  nombre: "Ventas",
+  ubicacion: "Nueva York",
+  presupuesto: 1000000
+})
+
+db.Departamentos.insertOne({
+  departamento_id: 2,
+  nombre: "Marketing",
+  ubicacion: "Los Angeles",
+  presupuesto: 800000
+})
+
+db.Departamentos.insertOne({
+  departamento_id: 3,
+  nombre: "Desarrollo",
+  ubicacion: "San Francisco",
+  presupuesto: 1500000
+})
+
+
+#Ahora podemos crear la colección "Proyectos":
+
+db.createCollection("Proyectos")
+
+db.Proyectos.insertOne({
+  proyecto_id: 1,
+  nombre: "Proyecto A",
+  fecha_inicio: ISODate("2022-01-01"),
+  fecha_fin: ISODate("2022-06-30")
+})
+
+db.Proyectos.insertOne({
+  proyecto_id: 2,
+  nombre: "Proyecto B",
+  fecha_inicio: ISODate("2022-03-15"),
+  fecha_fin: ISODate("2022-12-31")
+})
+
+db.Proyectos.insertOne({
+  proyecto_id: 3,
+  nombre: "Proyecto C",
+  fecha_inicio: ISODate("2022-06-01"),
+  fecha_fin: ISODate("2023-03-31")
+})
+
+#Finalmente la colección "Empleados":
+
+db.createCollection("Empleados")
+
+db.Empleados.insertOne({
+  empleado_id: 1,
+  nombre: "Juan",
+  edad: 30,
+  departamento_id: 1,
+  proyectos: [ "Proyecto A", "Proyecto B" ]
+})
+
+db.Empleados.insertOne({
+  empleado_id: 2,
+  nombre: "María",
+  edad: 25,
+  departamento_id: 1,
+  proyectos: [ "Proyecto B", "Proyecto C" ]
+})
+
+db.Empleados.insertOne({
+  empleado_id: 3,
+  nombre: "Pedro",
+  edad: 35,
+  departamento_id: 3,
+  proyectos: [ "Proyecto C" ]
+})
