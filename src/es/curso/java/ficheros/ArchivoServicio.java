@@ -20,7 +20,8 @@ public class ArchivoServicio {
 		File archivo = new File(nombre);
 		try (BufferedWriter buffer = new BufferedWriter(new FileWriter(archivo, false))) {
 
-			buffer.append("Hola que tal amigos!\n").append("Todo bien? yo escribiendo en un archivo...\n")
+			buffer.append("Hola que tal amigos!\n")
+					.append("Todo bien? yo escribiendo en un archivo...\n")
 					.append("Hasta luego Lucas!\n");
 			// buffer.close();
 			System.out.println("El archivo se ha creado con éxito!");
@@ -31,13 +32,13 @@ public class ArchivoServicio {
 
 	public void crearArchivo2(String nombre) {
 		File archivo = new File(nombre);
-
+		
 		try (PrintWriter buffer = new PrintWriter(archivo)) {
 			// try (PrintWriter buffer = new PrintWriter(new FileWriter(archivo))){
 
 			buffer.println("Hola que tal amigos!");
 			buffer.println("Todo bien? yo acá escribiendo un archivo...");
-			buffer.printf("Hasta luego %s!", "JoseLuis5");
+			buffer.printf("Hasta luego %s! %s", "JoseLuis5", "Cadena");
 			// buffer.close();
 			System.out.println("El archivo se ha creado con éxito!");
 		} catch (IOException e) {
@@ -48,23 +49,23 @@ public class ArchivoServicio {
 	public String leerArchivo(String nombre) throws IOException {
 		StringBuilder sb = new StringBuilder();
 		File archivo = new File(nombre);
-		FileReader fileReader = new FileReader(archivo);
-		BufferedReader reader = new BufferedReader(fileReader);
-
-		String linea;
-		while ((linea = reader.readLine()) != null) {
-			sb.append(linea).append("\n");
-		}
-
-//        try (BufferedReader reader = new BufferedReader(new FileReader(archivo))){
+//		FileReader fileReader = new FileReader(archivo);
+//		BufferedReader reader = new BufferedReader(fileReader);
 //
-//            String linea;
-//            while ( (linea = reader.readLine()) != null){
-//                sb.append(linea).append("\n");
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+//		String linea;
+//		while ((linea = reader.readLine()) != null) {
+//			sb.append(linea).append("\n");
+//		}
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(archivo))){
+
+            String linea;
+            while ( (linea = reader.readLine()) != null){
+                sb.append(linea).append("\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 		return sb.toString();
 	}
 

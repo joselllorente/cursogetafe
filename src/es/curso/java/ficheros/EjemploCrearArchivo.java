@@ -13,10 +13,10 @@ public class EjemploCrearArchivo {
     	Instant instant = Instant.now();
     	System.out.println(instant);
     	//Ruta relativa a la carpeta del proyecto
-        String nombreArchivo = "./recursos/java2.txt";
+        String nombreArchivo = "./recursos/java3.txt";
 
         ArchivoServicio service = new ArchivoServicio();
         //service.mostrarContenidoDirectorio("C:\\Users\\Tardes\\");
-        //service.crearArchivo2(nombreArchivo);
+        service.crearArchivo2(nombreArchivo);
     }
 }
