@@ -1,0 +1,11 @@
+Nombre1|Apellidos1|1111A|9|0
+Nombre2|Apellidos2|2222B|1|0
+Nombre3|Apellidos3|3333C|9|0
+Nombre4|Apellidos4|4444D|9|0
+Nombre5|Apellidos5|5555E|2|0
+Nombre6|Apellidos6|6666F|9|0
+Nombre7|Apellidos7|7777G|9|0
+Nombre8|Apellidos8|8888H|4|0
+Nombre9|Apellidos9|9999I|6|0
+Nombre10|Apellidos10|1010J|8|1
+Nombre11|Apellidos11|1111K|9|1
