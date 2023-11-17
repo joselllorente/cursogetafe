@@ -22,7 +22,11 @@ public class GestionFicheros {
 //		logger.info("Hay un total de " + this.contadorJPGs + " fichero .jpg");
 		LocalDateTime datetime = LocalDateTime.now();
 		logger.info(datetime);
-		mostrarNombreFicheroAnioActual(dir, String.valueOf(datetime.getYear()));
+		//mostrarNombreFicheroAnioActual(dir, String.valueOf(datetime.getYear()));
+		
+		renombrarFichero(dir,
+				String.valueOf(datetime.getYear()+1),
+				String.valueOf(datetime.getMonthValue()));
 		
 	}
 	
@@ -59,6 +63,41 @@ public class GestionFicheros {
 			}
 		}
 	}
+	
+	
+	public void renombrarFichero (File directorio, String anioActualMasUno, String mesActual) {
+		logger.debug("Buscando ficheros con el año actual +1"+ anioActualMasUno +
+				" en el nombre dentro del directorio "+directorio.getAbsolutePath() );
+		
+		File[] files = directorio.listFiles();
+		for (File file : files) {
+			if (file.isDirectory()) {
+				renombrarFichero(file,anioActualMasUno,mesActual);
+			}else {
+				logger.debug("Encontrado un fichero");
+				if(file.getName().contains(anioActualMasUno) && 
+						file.getName().contains(mesActual)) {
+					logger.info("Encontrado un fichero con el año actual+1 y el mes actual");
+					//Crear el directorio
+					String sNewDir = file.getParent()+"\\carpetanueva";
+					
+					File newDir = new File(sNewDir);
+					logger.debug("Creando directorio " + sNewDir);
+					boolean directorioCreado = newDir.mkdir();
+					
+					if(directorioCreado) {
+						logger.info("Renombrado a extension .done");
+						File renamedFile = new File(newDir,file.getName()+".done");
+						file.renameTo(renamedFile);
+					}else {
+						logger.warn("El directorio no se ha creado correctamente");
+					}
+
+				}
+			}
+		}
+	}
+	
 	
 	private void printInfoFile(File fichero) {
 		logger.info("Ruta: "+fichero.getAbsolutePath());
