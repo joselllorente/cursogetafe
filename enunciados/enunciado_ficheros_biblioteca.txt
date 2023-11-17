@@ -1,0 +1,3 @@
+Leer el fichero bibliotecas.txt
+Por cada linea que haya en el fichero insertar los datos 
+correspondientes en la tabla TB_biblioteca y TB_direcciones

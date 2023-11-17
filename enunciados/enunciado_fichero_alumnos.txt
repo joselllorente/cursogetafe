@@ -1,0 +1,4 @@
+Leer el fichero alumnos.txt
+Por cada línea del fichero generar un objeto alumno
+Meter todos los alumnos en una lista
+Indicar el tamaño de la lista de alumnos
