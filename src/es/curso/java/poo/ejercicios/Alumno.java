@@ -30,6 +30,17 @@ public class Alumno {
 		}
 	}
 	
+	
+	public Alumno(String dni, String nombre, String apellidos, 
+			double nota, boolean vip) {
+		super();
+		this.dni = dni;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.nota = nota;
+		this.vip = vip;
+	}
+
 	//GETTER Y SETTER
 	public String getDni() {
 		return dni;
