@@ -11,6 +11,13 @@ public class Biblioteca {
 		this.nombre = nombre;
 		this.direccion = direccion;
 	}
+	
+	public Biblioteca(String nombre, Direccion direccion) {
+		super();
+		this.nombre = nombre;
+		this.direccion = direccion;
+	}
+	
 	/**
 	 * @return the id
 	 */

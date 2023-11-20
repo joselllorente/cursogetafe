@@ -15,7 +15,7 @@ public class LeerFicheroAlumnos {
 		LeerFicheroAlumnos leer = new LeerFicheroAlumnos();
 		try {
 			System.out.println(leer.leerFicheroAlumnos(
-					"./recursos/alumnos.txt").size());
+					"./recursos/alumnos.txt",2).size());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
