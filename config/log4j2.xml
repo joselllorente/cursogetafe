@@ -30,7 +30,7 @@
 <!-- 			<AppenderRef ref="LogToConsole" /> -->
 <!-- 			 <AppenderRef ref="rollingFile"/> -->
 <!-- 		</Logger> -->
-		<Root level="info">
+		<Root level="debug">
 			<AppenderRef ref="LogToConsole" />
 			<AppenderRef ref="rollingFile"/>
 		</Root>

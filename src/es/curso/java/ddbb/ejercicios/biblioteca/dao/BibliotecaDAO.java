@@ -1,16 +1,21 @@
 package es.curso.java.ddbb.ejercicios.biblioteca.dao;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import es.curso.java.ddbb.ejercicios.biblioteca.entities.Biblioteca;
 import es.curso.java.ddbb.ejercicios.biblioteca.entities.Direccion;
 
 public class BibliotecaDAO extends ConexionDAO {
-
+	private static final Logger logger = LogManager.getLogger(BibliotecaDAO.class);
+	
 
 	public BibliotecaDAO() throws SQLException {
 		super();
@@ -62,4 +67,23 @@ public class BibliotecaDAO extends ConexionDAO {
 	}
 	
 	
+	
+	
+	public int insertarBiblioteca(Biblioteca biblioteca) throws SQLException {
+		logger.debug("insertarBiblioteca "+biblioteca);
+
+		String query = "INSERT "
+				+ "INTO TB_BIBLIOTECA (NOMBRE,FK_DIRECCION) "
+				+ "VALUES (?,?)";
+		
+		logger.debug("query: "+query);
+		PreparedStatement ps = this.getConexion().prepareStatement(query);
+		ps.setString(1, biblioteca.getNombre());
+		ps.setLong(2, biblioteca.getDireccion().getId());
+		
+		int insertados = ps.executeUpdate();
+		logger.debug("Bibliotecas insertadas "+insertados);
+		
+		return insertados;
+	}
 }
