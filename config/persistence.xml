@@ -3,8 +3,8 @@
     <persistence-unit name="ejemploHibernate" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <!-- entidades o entities -->
-        <class>curso.java.hibernate.basics.entities.Cliente</class>
-        <class>curso.java.hibernate.basics.entities.Alumno</class>
+        <class>es.curso.java.hibernate.basics.entities.Cliente</class>
+        <class>es.curso.java.hibernate.basics.entities.Alumno</class>
         
         
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
