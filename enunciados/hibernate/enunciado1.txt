@@ -1,0 +1,15 @@
+Crear la tabla TB_USUARIO 
+Campos:
+id
+Nombre (20)
+Apellidos (40)
+Dni (10) UNIQUE
+FechaAlta
+
+Insertar 3 registros
+Consultar todos los registros
+Consultar por nombre
+Consultar por fecha alta --> a partir de la fecha introducida 
+	todos los que se hayan dado de alta después de esa fecha
+Preguntar por nombre de usuario y borrar
+Preguntar por dni y modificamos los datos de ese usuario si exsite

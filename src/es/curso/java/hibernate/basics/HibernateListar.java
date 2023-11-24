@@ -17,12 +17,13 @@ public class HibernateListar {
         EntityManager em = JpaUtil.getEntityManager();
         Cliente cliente1 = new Cliente("Nombre1","Apellido","Efectivo");
         Cliente cliente2 = new Cliente("Nombre2","Apellido2","Tarjeta");
+        
         em.getTransaction().begin();
         em.persist(cliente1);
         em.persist(cliente2);
         em.getTransaction().commit();
-        
-        List<Cliente> clientes = em.createQuery("from Cliente", Cliente.class).getResultList();
+        logger.debug("============================================");
+        List<Cliente> clientes = em.createQuery("FROM Cliente", Cliente.class).getResultList();
         clientes.forEach(System.out::println);//Método Referencia
         //clientes.forEach(cliente->System.out.println(cliente));
         em.close();

@@ -17,7 +17,7 @@ public class HibernateSingleResultWhere {
         System.out.println("Ingrese una forma de pago: ");
         String pago = scan.next();
         query.setParameter(1, pago);
-        query.setMaxResults(1);
+        //query.setMaxResults(1);
         Cliente cliente = (Cliente) query.getSingleResult();
         System.out.println(cliente);
         em.close();
