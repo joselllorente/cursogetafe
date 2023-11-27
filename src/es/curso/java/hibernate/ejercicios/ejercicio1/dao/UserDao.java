@@ -1,5 +1,6 @@
 package es.curso.java.hibernate.ejercicios.ejercicio1.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import es.curso.java.hibernate.ejercicios.ejercicio1.entity.UserEntity;
@@ -43,7 +44,17 @@ public class UserDao {
 		return usuarios;
 	}
 	
+	public List<UserEntity> getUsersByDate (Date fechaConsulta){
+		List<UserEntity> usuarios;
+		
+		Query query = em.createQuery(
+				"from UserEntity ue where ue.fechaAlta>=?1", 
+				UserEntity.class);
+		
+		query.setParameter(1, fechaConsulta);
+		usuarios = query.getResultList();
+		
+		return usuarios;
+	}
 	
-	
-
 }

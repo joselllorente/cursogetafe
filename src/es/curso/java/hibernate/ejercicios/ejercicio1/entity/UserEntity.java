@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "TB_USUARIO" )
 public class UserEntity {
-	//@Id
+	@Id
 	private long id;
 	
 	@Column(length = 20) 
@@ -103,6 +103,13 @@ public class UserEntity {
 	 */
 	public void setFechaAlta(Date fechaAlta) {
 		this.fechaAlta = fechaAlta;
+	}
+
+	@Override
+	public String toString() {
+		return "UserEntity [id=" + id + ", " + (nombre != null ? "nombre=" + nombre + ", " : "")
+				+ (apellidos != null ? "apellidos=" + apellidos + ", " : "") + (dni != null ? "dni=" + dni + ", " : "")
+				+ (fechaAlta != null ? "fechaAlta=" + fechaAlta : "") + "]";
 	}
 	
 	
