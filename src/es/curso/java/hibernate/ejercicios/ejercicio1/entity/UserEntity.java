@@ -24,6 +24,8 @@ public class UserEntity {
 	
 	public UserEntity() {
 		super();
+		System.out.println("Creando objeto");
+		
 	}
 
 	public UserEntity(long id, String nombre, String apellidos, String dni, Date fechaAlta) {

@@ -11,6 +11,7 @@ import es.curso.java.hibernate.basics.HibernateListar;
 import es.curso.java.hibernate.ejercicios.ejercicio1.dao.UserDao;
 import es.curso.java.hibernate.ejercicios.ejercicio1.entity.UserEntity;
 import es.curso.java.hibernate.ejercicios.ejercicio1.utils.UtilsFecha;
+import es.curso.java.utils.Utilidades;
 
 public class Ejercicio1 {
 	private static final Logger logger = LogManager.getLogger(Ejercicio1.class);
@@ -18,9 +19,18 @@ public class Ejercicio1 {
 	public static void main(String[] args) {
 		Ejercicio1 ejer1 = new Ejercicio1();
 		UserDao userDao = new UserDao();
+		
+		//Insertar usuario
+//		userDao.insertarUsuario(
+//				new UserEntity(4, "N", "A", "1A", new Date())
+//		);
+		
 		ejer1.parte1(userDao);
-		ejer1.parte2(userDao);
-		ejer1.parte3(userDao);
+//		ejer1.parte2(userDao);
+//		ejer1.parte3(userDao);
+//		ejer1.parte4(userDao);
+//		ejer1.parte5(userDao);
+		
 	}
 
 	public void parte1 (UserDao userDao) {
@@ -42,8 +52,7 @@ public class Ejercicio1 {
 	}
 	
 	public void parte3 (UserDao userDao) {
-		Date fecha = UtilsFecha.generaFecha();
-		
+		Date fecha = UtilsFecha.generaFechaMenosDias(10);
 		
 		List<UserEntity> usuariosDate= userDao.getUsersByDate(fecha);
 		logger.info("Empieza date");
@@ -51,7 +60,24 @@ public class Ejercicio1 {
 			logger.info(userEntity);
 		}
 		logger.info("Termina");
-		
+	}
+	
+	
+	public void parte4 (UserDao userDao) {
+		String nombre = Utilidades.pideDatoTexto("Escribe nombre: ");
+		userDao.borrarUsuarioPorNombre(nombre);
+		logger.info("Termina borrar usuarios");
 	}
 
+	public void parte5 (UserDao userDao) {
+		String dni = Utilidades.pideDatoTexto("Escribe dni: ");
+
+		userDao.modificarUsuarioPorDni(dni, 
+				new UserEntity(5, "N", "A", "1A", new Date()));
+		logger.info("Termina modificar usuario");
+	}
+	
+	
+	
+	
 }
