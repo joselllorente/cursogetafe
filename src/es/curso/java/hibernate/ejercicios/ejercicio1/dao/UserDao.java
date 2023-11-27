@@ -6,7 +6,9 @@ import java.util.List;
 import es.curso.java.hibernate.ejercicios.ejercicio1.entity.UserEntity;
 import es.curso.java.hibernate.util.JpaUtil;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.Query;
+import jakarta.persistence.TypedQuery;
 
 public class UserDao {
 	
@@ -55,6 +57,62 @@ public class UserDao {
 		usuarios = query.getResultList();
 		
 		return usuarios;
+	}
+	
+	public void insertarUsuario (UserEntity user) {
+		 em.getTransaction().begin();
+		 try {
+			 em.persist(user);
+			 
+			 em.getTransaction().commit();
+		 }catch(Exception e) {
+			 em.getTransaction().rollback();
+		 }
+	     
+	}
+	
+	public void borrarUsuarioPorNombre (String nombre) {
+		 em.getTransaction().begin();
+		 try {
+			List<UserEntity> usuarios = getUsersByName(nombre);
+            
+            for (UserEntity userEntity : usuarios) {
+            	em.remove(userEntity);
+			}
+            
+            em.getTransaction().commit();
+		 }catch(Exception e) {
+			 em.getTransaction().rollback();
+		 }
+	     
+	}
+	
+	public void modificarUsuarioPorDni (String dni, UserEntity userModified) {
+		
+		TypedQuery<UserEntity> query = em.createQuery(
+				"from UserEntity where dni=?1",
+				UserEntity.class);
+		query.setParameter(1, dni);
+		
+		try {
+			UserEntity user = query.getSingleResult();
+			em.getTransaction().begin();
+			//user.setId(userModified.getId());
+			user.setNombre(userModified.getNombre());
+			user.setApellidos(userModified.getApellidos());
+			user.setFechaAlta(userModified.getFechaAlta());
+
+			em.merge(user);
+			
+			em.getTransaction().commit();
+		}catch (NoResultException nre) {
+			System.out.println("Dni "+dni+ " no encontrado");
+		}catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			em.getTransaction().rollback();
+		}
+		
 	}
 	
 }
