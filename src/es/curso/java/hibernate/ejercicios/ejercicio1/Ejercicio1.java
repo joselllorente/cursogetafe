@@ -34,9 +34,9 @@ public class Ejercicio1 {
 	}
 
 	public void parte1 (UserDao userDao) {
-		List<UserEntity> usuariosName= userDao.getUsersByName("NOMBRE");
+		List<UserEntity> usuarios = userDao.getUsers();
 		logger.info("Empieza");
-		for (UserEntity userEntity : usuariosName) {
+		for (UserEntity userEntity : usuarios) {
 			logger.info(userEntity);
 		}
 		logger.info("Termina");
