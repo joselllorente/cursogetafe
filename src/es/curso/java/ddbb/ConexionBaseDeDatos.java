@@ -15,14 +15,15 @@ public class ConexionBaseDeDatos {
 
 	public static void main(String[] args) {
 		ConexionBaseDeDatos conexion = new ConexionBaseDeDatos();
-		conexion.insertPrepareStatement();
+		conexion.conectaOracle();
 
 	}
 	
 	private void conectaTryWithResources() {
-		String url = "jdbc:mysql://localhost:3306/curso?serverTimezone=Europe/Madrid";
+		String url = "jdbc:mysql://localhost:3306/curso?serverTimezone=Europe/Madrid";	
 		String username = "root";
 		String password = "password";
+		
 		
 		//Connection connection = null;//Conexion con la base de datos
 		//Statement stmt = null;//Lanzar consulta
@@ -210,5 +211,29 @@ public class ConexionBaseDeDatos {
 
 	}
 	
+	private void conectaOracle() {
+		String url_oracle = "jdbc:oracle:thin:curso/password@localhost:1521:XE";
+		
+		String url_oracle2 = "jdbc:oracle:thin:@localhost:1521:XE";
+		String username = "curso";
+		String password = "password";
+
+		
+		try  {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection connection = DriverManager.getConnection(url_oracle2,username,password);
+			if (connection!=null) {
+				System.out.println("Conexion establecida");
+			}
+
+		} catch (SQLException e) {
+			System.err.println("Ha habido un error " + e.getMessage());
+//			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
 	
 }
