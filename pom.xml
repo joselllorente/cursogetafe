@@ -39,6 +39,12 @@
 			<artifactId>hibernate-core-jakarta</artifactId>
 			<version>5.6.12.Final</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc10 -->
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc10</artifactId>
+			<version>19.21.0.0</version>
+		</dependency>
 
 	</dependencies>
 
