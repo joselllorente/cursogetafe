@@ -1,0 +1,15 @@
+Primera parte
+=========================================================
+Consultar la tabla TB_USUARIO y guardar registros en fichero
+EL fichero tendrá cabecera con los nombres de las columnas
+ID;NOMBRE;APELLIDOS;....
+1;N1;A1;yyyymmdd;.... 
+
+Segunda parte
+=========================================================
+Crear entity Productos
+1. Cargar Productos -> Pedir directorio y nombre del fichero con los datos a cargar
+2. Mostrar Productos
+3. Mostrar por Fecha -> Pedir fecha y mostrar los productos dados de alta en ese dia
+4. Mostrar para cada tipo de producto la media de precio y el total de productos
+
