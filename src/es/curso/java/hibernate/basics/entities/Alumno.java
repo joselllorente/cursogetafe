@@ -7,21 +7,22 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
+import net.bytebuddy.build.HashCodeAndEqualsPlugin.ValueHandling;
 
 @Entity
 @Table(name = "TB_ALUMNO")
 public class Alumno {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
 	
 	private String nombre;
 	private String apellidos;
 	
-	@Column(length = 9, name = "DNI_ALUMNO", unique = true)
+	@Column(length = 9, name = "DNI_ALUMNO", unique = true, nullable = false)
 	private String dni;
 	
-	private String user;
+	private String usuario;
 	
 	@Transient
 	private int edad;
@@ -36,7 +37,7 @@ public class Alumno {
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.dni = dni;
-		this.user = user;
+		this.usuario = user;
 		this.edad = edad;
 	}
 
@@ -46,7 +47,7 @@ public class Alumno {
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.dni = dni;
-		this.user = user;
+		this.usuario = user;
 	}
 
 	public Alumno(Long id, String nombre, String apellidos, String dni, String user) {
@@ -55,7 +56,7 @@ public class Alumno {
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.dni = dni;
-		this.user = user;
+		this.usuario = user;
 	}
 
 	public String getNombre() {
@@ -81,11 +82,11 @@ public class Alumno {
 		this.dni = dni;
 	}
 
-	public String getUser() {
-		return user;
+	public String getUsuario() {
+		return usuario;
 	}
-	public void setUser(String user) {
-		this.user = user;
+	public void setUsuario(String user) {
+		this.usuario = user;
 	}
 
 	
@@ -108,7 +109,7 @@ public class Alumno {
 	@Override
 	public String toString() {
 		return "Alumno [id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", dni=" + dni + ", user="
-				+ user + "]";
+				+ usuario + "]";
 	}
 	
 }
