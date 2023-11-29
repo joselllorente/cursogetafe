@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.0">
-    <persistence-unit name="ejemploHibernate" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="hibernateMySQL" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <!-- entidades o entities -->
         <class>es.curso.java.hibernate.basics.entities.Cliente</class>
@@ -17,6 +17,27 @@
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
             <property name="hibernate.show_sql" value="true"/>
  			<property name="hibernate.hbm2ddl.auto" value="update"/>
+        </properties>
+    </persistence-unit>
+    
+    
+    <persistence-unit name="hibernateOracle" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <!-- entidades o entities -->
+        <class>es.curso.java.hibernate.basics.entities.Cliente</class>
+        <class>es.curso.java.hibernate.basics.entities.Alumno</class>
+        <class>es.curso.java.hibernate.ejercicios.ejercicio1.entity.UserEntity</class>
+        
+        
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+            <property name="jakarta.persistence.jdbc.user" value="curso"/>
+            <property name="jakarta.persistence.jdbc.password" value="password"/>
+            <property name="jakarta.persistence.jdbc.driver" value="oracle.jdbc.driver.OracleDriver"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
+            <property name="hibernate.show_sql" value="true"/>
+ 			<property name="hibernate.hbm2ddl.auto" value="create"/>
         </properties>
     </persistence-unit>
     

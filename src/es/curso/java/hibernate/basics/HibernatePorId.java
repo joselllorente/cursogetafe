@@ -14,7 +14,7 @@ public class HibernatePorId {
         System.out.println("Ingrese el id: ");
         Long id = scanner.nextLong();
         
-        EntityManager em = JpaUtil.getEntityManager();
+        EntityManager em = JpaUtil.getEM("hibernateMySQL");
         Cliente cliente = em.find(Cliente.class, id);
         cliente.setCampo1("Valor1");
         System.out.println(cliente);

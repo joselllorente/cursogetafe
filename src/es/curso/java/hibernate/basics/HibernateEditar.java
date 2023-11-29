@@ -9,7 +9,8 @@ import jakarta.persistence.EntityManager;
 public class HibernateEditar {
     public static void main(String[] args) {
 
-        EntityManager em = JpaUtil.getEntityManager();
+        
+        EntityManager em = JpaUtil.getEM("hibernateMySQL");
         try {
 
             Long id = Long.valueOf(JOptionPane.showInputDialog("Ingrese el id del cliente a modificar:"));
