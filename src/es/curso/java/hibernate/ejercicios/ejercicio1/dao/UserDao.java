@@ -15,7 +15,7 @@ public class UserDao {
 	private EntityManager em;
 
 	public UserDao() {
-		em = JpaUtil.getEntityManager();
+		em = JpaUtil.getEM("hibernateMySQL");
 	}
 	
 	

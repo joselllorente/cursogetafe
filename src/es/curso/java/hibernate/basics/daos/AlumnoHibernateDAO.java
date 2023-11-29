@@ -14,7 +14,7 @@ import jakarta.persistence.Query;
 
 public class AlumnoHibernateDAO {
 	private static final Logger logger = LogManager.getLogger(AlumnoHibernateDAO.class);
-	private static EntityManager em = JpaUtil.getEntityManager();
+	private static EntityManager em = JpaUtil.getEM("hibernateMySQL");
 
 	public static void cargaInicial() {
 		logger.debug("Empezando carga inicial de datos");
