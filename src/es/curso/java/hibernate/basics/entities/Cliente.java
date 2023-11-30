@@ -26,7 +26,7 @@ public class Cliente {
  
     private String campo1;
 
-    //Debe existir obligatoriamente
+    //Debe existir obligatoriamente 
     public Cliente() {
     }
 
