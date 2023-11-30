@@ -39,6 +39,14 @@ public class UserEntity {
 		this.dni = dni;
 		this.fechaAlta = fechaAlta;
 	}
+	
+	public UserEntity(String nombre, String apellidos, String dni, Date fechaAlta) {
+		super();
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.dni = dni;
+		this.fechaAlta = fechaAlta;
+	}
 
 	/**
 	 * @return the id
