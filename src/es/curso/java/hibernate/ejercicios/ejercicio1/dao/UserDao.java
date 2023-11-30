@@ -71,6 +71,22 @@ public class UserDao {
 	     
 	}
 	
+	public void insertarUsuarios (List<UserEntity> users) {
+		 em.getTransaction().begin();
+		 try {
+			 
+			for (UserEntity user : users) {
+				 em.persist(user);
+			}
+			 
+			em.getTransaction().commit();
+		 }catch(Exception e) {
+			 em.getTransaction().rollback();
+		 }
+	     
+	}
+	
+	
 	public void borrarUsuarioPorNombre (String nombre) {
 		 em.getTransaction().begin();
 		 try {
