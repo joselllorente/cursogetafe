@@ -18,6 +18,13 @@ public class UserDao {
 		em = JpaUtil.getEM("hibernateMySQL");
 	}
 	
+	public UserDao(String persitenceUnitName) {
+		em = JpaUtil.getEM(persitenceUnitName);
+	}
+	
+	public UserDao(EntityManager em) {
+		this.em = em;
+	}
 	
 	public List<UserEntity> getUsers (){
 		List<UserEntity> usuarios;
