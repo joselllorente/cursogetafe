@@ -35,16 +35,16 @@ public class Ejercicio2_2 {
 			productoDao.insertarProductos(productos);
 			
 			//Consulta general
-			List<Producto> productosConsulta = productoDao.getProductos();
-			for (Producto producto : productosConsulta) {
-				System.out.println(producto);
-			}
-			
-			//Consulta por fecha
-			List<Producto> productosConsultaFecha = productoDao.getProductosByDate();
-			for (Producto producto : productosConsulta) {
-				System.out.println(producto);
-			}
+//			List<Producto> productosConsulta = productoDao.getProductos();
+//			for (Producto producto : productosConsulta) {
+//				System.out.println(producto);
+//			}
+//			
+//			//Consulta por fecha
+//			List<Producto> productosConsultaFecha = productoDao.getProductosByDate();
+//			for (Producto producto : productosConsulta) {
+//				System.out.println(producto);
+//			}
 			
 			//Consulta media importe y total por tipo
 			
@@ -64,7 +64,9 @@ public class Ejercicio2_2 {
 	
 	}
 	
-	private List<Producto> generaProductosDesdeFichero (List<String> lineas, int numLineasCabeceras) throws ParseException{
+	private List<Producto> generaProductosDesdeFichero (List<String> lineas, 
+			int numLineasCabeceras) throws ParseException{
+		
 		List<Producto> productos = new ArrayList<Producto>();
 		for (int i = numLineasCabeceras; i < lineas.size(); i++) {
 			String linea = lineas.get(i);
@@ -81,7 +83,7 @@ public class Ejercicio2_2 {
 		Producto producto = new Producto();
 		producto.setNombre(campos[0]);
 		producto.setTipo(campos[1]);
-		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		producto.setFechaAlta(sdf.parse(campos[2]));
 		producto.setPrecio(Double.parseDouble(campos[3]));
 		producto.setUnidades(Integer.parseInt(campos[4]));
