@@ -10,6 +10,7 @@ import java.util.List;
 
 import es.curso.java.hibernate.ejercicios.ejercicio2.dao.ProductoDAO;
 import es.curso.java.hibernate.ejercicios.ejercicio2.entities.Producto;
+import es.curso.java.hibernate.ejercicios.ejercicio2.pojos.ProductosInfo;
 import es.curso.java.hibernate.util.JpaUtil;
 import jakarta.persistence.EntityManager;
 
@@ -33,27 +34,45 @@ public class Ejercicio2_2 {
 			
 			//Insertamos los datos
 			productoDao.insertarProductos(productos);
-			
-			//Consulta general
+//			
+//			//Consulta general
 //			List<Producto> productosConsulta = productoDao.getProductos();
 //			for (Producto producto : productosConsulta) {
 //				System.out.println(producto);
 //			}
-//			
-//			//Consulta por fecha
-//			List<Producto> productosConsultaFecha = productoDao.getProductosByDate();
-//			for (Producto producto : productosConsulta) {
+
+			//Consulta por fecha
+//			String fecha = Utilidades.pideDatoTexto("Introduce la fecha de búsqueda(formato dd-MM-yyyy)");
+
+//			SimpleDateFormat spdf = new SimpleDateFormat("dd-MM-yyyy");
+//			Date fechaBusqueda = spdf.parse(fecha);
+//			List<Producto> productosConsultaFecha = productoDao.getProductosByDate(fechaBusqueda);
+//			for (Producto producto : productosConsultaFecha) {
 //				System.out.println(producto);
 //			}
 			
 			//Consulta media importe y total por tipo
+//			List<Object[]> datos = productoDao.getInfoTiposProductos();
+//			
+//			for (Object[] registro : datos) {
+//				
+//				ProductosInfo productoInfo = 
+//						new ProductosInfo(
+//								Double.parseDouble(registro[1].toString()),
+//								Long.parseLong(registro[2].toString()),
+//								registro[0].toString());
+//				
+//				
+//				System.out.println(productoInfo);
+//			}
 			
-			
-			
-			
-		} catch (IOException e) {
+			List<ProductosInfo> datosHQL = productoDao.getInfoTiposProductosHQL();
+			datosHQL.forEach(datos->System.out.println(datos));
+		} 
+		catch (IOException e) {
 			e.printStackTrace();
-		}catch (ParseException pe) {
+		}
+		catch (ParseException pe) {
 			pe.printStackTrace();
 		}
 		
