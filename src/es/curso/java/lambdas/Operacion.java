@@ -4,6 +4,7 @@ package es.curso.java.lambdas;
 public interface Operacion {
 	
 	int operar (int num1, int num2);
+	
 
 	//int operar4();
 	

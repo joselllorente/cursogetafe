@@ -8,7 +8,7 @@ public class PruebaHerencia {
 		
 		Elefante elefante1 = new Elefante("Dumbo",2);
 		elefante1 = null;
-		
+		elefante1.barritar();
 		//elefante1.comer();
 		//System.out.println(elefante1.getNombre());
 		//elefante1.barritar();
@@ -29,6 +29,13 @@ public class PruebaHerencia {
 		
 		//
 		//Elefante e = new Animal("",2);
+		
+		Animal animal = new Elefante("Dumbo",2);
+		if(animal instanceof Elefante) {
+			Elefante e =((Elefante)animal);
+			e.barritar();
+		}
+		//animal.barritar();
 	}
 	
 	

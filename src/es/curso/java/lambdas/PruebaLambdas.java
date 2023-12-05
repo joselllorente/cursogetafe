@@ -7,11 +7,13 @@ public class PruebaLambdas {
 //		Operacion suma = new Suma();
 //		suma.operar(2, 3);
 		
-		Operacion ope = (a,p) -> a+p;
+		Operacion ope = (a,b) -> (int)Math.random();
 		
 		miOperacion(6,8,ope);
 		
 		miOperacion(9,18, (f,g)-> f-g );
+		
+		
 		miOperacion(9,18, (f,g) -> { 
 						if (f>5) {
 							f= f*4;
@@ -34,3 +36,9 @@ public class PruebaLambdas {
 	
 
 }
+
+
+
+
+
+

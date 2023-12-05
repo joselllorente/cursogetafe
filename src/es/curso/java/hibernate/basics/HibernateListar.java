@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 
 import es.curso.java.hibernate.basics.entities.Cliente;
 import es.curso.java.hibernate.util.JpaUtil;
+import es.curso.java.lambdas.advanced.Test;
 import jakarta.persistence.EntityManager;
 
 public class HibernateListar {
@@ -24,9 +25,27 @@ public class HibernateListar {
         em.getTransaction().commit();
         logger.debug("============================================");
         List<Cliente> clientes = em.createQuery("FROM Cliente", Cliente.class).getResultList();
-        clientes.forEach(System.out::println);//Método Referencia
-        //clientes.forEach(cliente->System.out.println(cliente));
+        clientes.forEach(Test::pintaNombreCliente);//Método Referencia
+        clientes.forEach(System.out::println);
+        clientes.forEach(cliente -> Test.pintaNombreCliente(cliente));
+        //clientes.forEach(x -> System.out.println(x));
+        clientes.stream().
+        	filter( cliente -> cliente.getNombre().equals("Juan")).
+        	map( cliente -> { cliente.setFormaPago("as"); return cliente; } ).
+        	forEach(cliente -> System.out.println(cliente));
+        
+        for (Cliente x : clientes) {
+			
+		}
+        
         em.close();
         logger.debug("Final");
     }
 }
+
+
+
+
+
+
+

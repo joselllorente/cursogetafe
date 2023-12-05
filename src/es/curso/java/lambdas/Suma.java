@@ -17,9 +17,9 @@ public class Suma implements Operacion {
 	}
 
 	@Override
-	public int operar(int num1, int num2) {
+	public int operar(int f, int g) {
 		// TODO Auto-generated method stub
-		return num1+num2;
+		return f+g;
 	}
 	
 	

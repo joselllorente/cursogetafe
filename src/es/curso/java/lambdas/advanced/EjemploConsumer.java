@@ -8,6 +8,8 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
+import es.curso.java.hibernate.ejercicios.ejercicio2.dao.ProductoDAO;
+import es.curso.java.hibernate.ejercicios.ejercicio2.entities.Producto;
 import es.curso.java.lambdas.advanced.models.Usuario;
 
 public class EjemploConsumer {
@@ -19,9 +21,12 @@ public class EjemploConsumer {
         };
         consumidor.accept(new Date());
 
-        BiConsumer<String, Integer> consumidorBi = (nombre, edad) -> System.out.println(nombre + ", tiene " + edad + " años!");
+        BiConsumer<String, Integer> consumidorBi = 
+        		(nombre, edad) -> 
+        		System.out.println(nombre + ", tiene " + edad + " años!");
 
         consumidorBi.accept("pepe", 20);
+        consumidorBi.accept("juan", 22);
 
         Consumer<String> consumidor2 = System.out::println;
         consumidor2.accept("Hola mundo lambda");
@@ -37,7 +42,27 @@ public class EjemploConsumer {
         System.out.println("Nombre usuario: " + usuario.getNombre());
 
         Supplier<String> proveedor = () -> "Hola mundo lambda supplier";
+        
+        Supplier<List<Producto>> productos = () -> {
+        	ProductoDAO pDAO = new ProductoDAO(null);
+        	return pDAO.getProductos();
+        };
 
+        
         System.out.println(proveedor.get());
     }
+    
+    public void generaNombre (String nombre) {
+    	
+    }
+    
+    public List<Producto> getProductos (Supplier<List<Producto>> c ){
+    	List<Producto> productos = null;
+    	
+    	productos = c.get();
+    	
+    	return productos;
+    }
+    
 }
+
