@@ -14,6 +14,9 @@ import jakarta.persistence.Table;
 @Table(name="TB_DIRECCIONES")
 public class Direccion implements Serializable
 {
+	/**
+	 * 
+	 */
 	@Id
 	@SequenceGenerator(name="DIRECCIONESGEN", sequenceName="DIRECCIONES_GEN", initialValue=1, allocationSize=1)
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="DIRECCIONESGEN")
@@ -55,4 +58,12 @@ public class Direccion implements Serializable
     {
         this.codigoPostal = codigoPostal;
     }
+
+	@Override
+	public String toString() {
+		return "Direccion [id=" + id + ", " + (calle != null ? "calle=" + calle + ", " : "")
+				+ (codigoPostal != null ? "codigoPostal=" + codigoPostal : "") + "]";
+	}
+    
+    
 }
