@@ -1,0 +1,22 @@
+Crea una entidad llamada Contrato con los siguientes atributos: (1 puntos)
+
+id (Identificador numérico, clave primaria)
+nombreCliente (Cadena de texto)
+fechaInicio (Fecha de inicio del contrato)
+fechaFin (Fecha de fin del contrato)
+importe (Valor numérico representando el importe del contrato)
+
+Realiza las siguientes operaciones de consulta utilizando Hibernate:
+
++ Insertar 3 contratos donde la fecha de inicio sea el dia actual y la fecha fin sea: para el primero el 31/12/2023, para el segundo 31/12/2024 y para el tercero 31/12/2025 (2 puntos)
++ Recuperar todos los contratos almacenados en la base de datos. (1 puntos)
++ Buscar contratos por nombre de cliente. (2 puntos)
++ Obtener contratos que finalicen después del 10/10/2024. (2 puntos)
++ Encontrar contratos cuyo importe sea superior a cierto valor solicitado. (2 puntos)
+
+
+
+
+
+
+
