@@ -31,6 +31,7 @@
         <class>es.curso.java.hibernate.relations.unounounidireccional.entities.Persona</class>
         <class>es.curso.java.hibernate.relations.unounounidireccional.entities.Direccion</class>
         <class>es.curso.java.hibernate.ejercicios.ejercicio.biblioteca.entities.Biblioteca</class>
+        <class>es.curso.java.examen.modulo2.parte4.Contrato</class>
         
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
@@ -40,7 +41,7 @@
             <property name="jakarta.persistence.jdbc.driver" value="oracle.jdbc.driver.OracleDriver"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
             <property name="hibernate.show_sql" value="true"/>
- 			<property name="hibernate.hbm2ddl.auto" value="update"/>
+ 			<property name="hibernate.hbm2ddl.auto" value="create"/>
         </properties>
     </persistence-unit>
     

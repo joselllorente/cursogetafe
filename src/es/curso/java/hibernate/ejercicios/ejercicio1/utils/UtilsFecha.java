@@ -27,6 +27,25 @@ public class UtilsFecha {
 		return fecha;
 	}
 
+	
+	public static Date generaFecha(int anio) {
+		return generaFecha(anio, 12, 31);
+	}
+	
+	public static Date generaFecha(int anio,int mes, int dia) {
+		Date fecha = null;
+		Calendar calendario = Calendar.getInstance();
+
+        calendario.set(Calendar.YEAR, anio);
+        calendario.set(Calendar.MONTH, mes-1);
+        calendario.set(Calendar.DAY_OF_MONTH, dia);
+
+        fecha = calendario.getTime();
+		
+		return fecha;
+	}
+	
+	
 	public static Date generaFechaActual() {
 		Date fecha = new Date();
 		

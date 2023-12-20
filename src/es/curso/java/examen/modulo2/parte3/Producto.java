@@ -6,6 +6,7 @@ public class Producto {
 	private String tipo;
 	private double precio;
 	private int stock;
+	
 	public Producto(int id, String nombre, String tipo, double precio, int stock) {
 		super();
 		this.id = id;
