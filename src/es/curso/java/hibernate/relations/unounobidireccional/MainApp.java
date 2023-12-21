@@ -14,50 +14,53 @@ public class MainApp {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		 Pais pais1 = new Pais();  
-		    pais1.setNombre("China");   
+		Pais pais1 = new Pais();
+		pais1.setNombre("China");
 
-		    Pais pais2 = new Pais();  
-		    pais2.setNombre("Corea");    
+		Pais pais2 = new Pais();
+		pais2.setNombre("Corea");
 
-		    Presidente presidente1 = new Presidente();  
-		    presidente1.setNombre("Jiang Zemin");   
+		Presidente presidente1 = new Presidente();
+		presidente1.setNombre("Jiang Zemin");
 
-		    Presidente presidente2 = new Presidente();  
-		    presidente2.setNombre("Kim Dae-Jung");   
+		Presidente presidente2 = new Presidente();
+		presidente2.setNombre("Kim Dae-Jung");
 
-		    pais1.setPresidente(presidente1);  
-		    pais2.setPresidente(presidente2);   
+		pais1.setPresidente(presidente1);
+		pais2.setPresidente(presidente2);
 
-		    presidente1.setPais(pais1);
-		    presidente2.setPais(pais2);
+		presidente1.setPais(pais2);
+		presidente2.setPais(pais1);
 
-		    EntityManager em = JpaUtil.getEM("hibernateOracle");
-		    EntityTransaction transaction = em.getTransaction();
-		    
-		    //Podemos crear un pais sin presidente
-		    Pais p = new Pais();  
-		    p.setNombre("Chipre");    
+		EntityManager em = JpaUtil.getEM("hibernateOracle");
+		EntityTransaction transaction = em.getTransaction();
 
-		    /*En la primer sesion a la base de datos almacenamos los dos objetos Pais  
-		    los objetos Presidente se almacenaran en cascada*/  
-		    transaction.begin();   
-		    
-		    em.persist(p);  
-		    em.persist(pais1);  
-		    em.persist(pais2);   
+		// Podemos crear un pais sin presidente
+		Pais p = new Pais();
+		p.setNombre("Chipre");
 
-		    transaction.commit();
+		/*
+		 * En la primer sesion a la base de datos almacenamos los dos objetos Pais los
+		 * objetos Presidente se almacenaran en cascada
+		 */
+		transaction.begin();
 
-		    /*En la segunda sesion eliminamos el objeto pais1,  
-		    el presidente1 sera borrado en cascada*/  
+		em.persist(p);
+		em.persist(pais1);
+		em.persist(pais2);
 
-		   
-		    transaction.begin();  
-		    em.remove(pais1);   
+		transaction.commit();
 
-		    transaction.commit();
-		    System.exit(0);
+		/*
+		 * En la segunda sesion eliminamos el objeto pais1, el presidente1 sera borrado
+		 * en cascada
+		 */
+
+//		transaction.begin();
+//		em.remove(pais1);
+//
+//		transaction.commit();
+//		System.exit(0);
 	}
 
 }

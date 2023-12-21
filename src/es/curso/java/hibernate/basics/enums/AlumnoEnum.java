@@ -4,6 +4,7 @@ public enum AlumnoEnum {
 
 	ALUMNO1("Nombre1","Apellido1","DNI1","admin"),
 	ALUMNO2("Nombre2","Apellido2","DNI2","admin"),
+	ALUMNO4("Nombre4","Apellido4","DNI4"),
 	ALUMNO3("Nombre3","Apellido3","DNI3","user1");
 	
 	private String nombre;
@@ -18,6 +19,14 @@ public enum AlumnoEnum {
 		this.user = user;
 	}
 
+	private AlumnoEnum(String nombre, String apellidos, String dni) {
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.dni = dni;
+		this.user = user;
+	}
+	
+	
 	public String getNombre() {
 		return nombre;
 	}

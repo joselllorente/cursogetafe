@@ -26,9 +26,11 @@ public class Persona implements Serializable {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PERSONAGEN")
 	@Column(name = "ID", nullable = false, updatable = false)
 	private long id;
+	
+	@Column(name = "NOMBRE_PERSONA")
 	private String nombre;
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 //	@IndexColumn(name="indice")
 //	@OrderBy("titulo asc")
 //	@OrderColumn

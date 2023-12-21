@@ -32,7 +32,9 @@ public class AlumnoHibernateDAO {
 		try {
 			em.getTransaction().begin();
 			for (AlumnoEnum alumnoEnum : alumnosEnum) {
-				Alumno alumno = new Alumno(alumnoEnum.getNombre(), alumnoEnum.getApellidos(), alumnoEnum.getDni(),
+				Alumno alumno = new Alumno(alumnoEnum.getNombre(), 
+						alumnoEnum.getApellidos(), 
+						alumnoEnum.getDni(),
 						alumnoEnum.getUser());
 				em.persist(alumno);
 			}

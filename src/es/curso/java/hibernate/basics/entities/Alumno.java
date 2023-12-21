@@ -1,5 +1,6 @@
 package es.curso.java.hibernate.basics.entities;
 
+import es.curso.java.hibernate.basics.enums.AlumnoEnum;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,7 +8,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
-import net.bytebuddy.build.HashCodeAndEqualsPlugin.ValueHandling;
 
 @Entity
 @Table(name = "TB_ALUMNO")
