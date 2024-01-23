@@ -1,0 +1,22 @@
+clase Tornillo
+	id
+	String color
+	double longitud
+	double diametro
+	double precio
+
+clase Ferreteria
+	id
+	nombre
+	direccion
+	[] tornillos
+
+
+clase que tenga un método main 
+	3 tornillos
+ 	1 ferreteria con 3 tornillos
+
+	Los tornillos se van a crear en un Enum
+	Los datos de la ferreteria vienen en fichero .properties
+
+	Calcular precio de todos los tornillos de la ferretería 	(usando lambda)
