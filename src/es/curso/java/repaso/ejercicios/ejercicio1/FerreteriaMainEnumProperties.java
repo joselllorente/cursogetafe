@@ -3,6 +3,8 @@ package es.curso.java.repaso.ejercicios.ejercicio1;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Properties;
 
 public class FerreteriaMainEnumProperties {
@@ -54,6 +56,26 @@ public class FerreteriaMainEnumProperties {
 			ferreteria.setTornillos(tornillos);
 			System.out.println(ferreteria.getTornillos().length);
 			
+			
+			List<Tornillo> listaTornillos =  Arrays.asList(ferreteria.getTornillos());
+			System.out.println("==============================");
+			
+			double [] precioTornillos= {0};
+			Double  precioTornillosDouble= 0.0;
+			listaTornillos.forEach(tornillo-> precioTornillos[0]+=tornillo.getPrecio());
+			//listaTornillos.forEach(tornillo-> precioTornillosDouble+=tornillo.getPrecio());
+			System.out.println(precioTornillos[0]);
+			
+			
+			System.out.println("==============================");
+			
+			double precioTotal= listaTornillos.stream().
+//				filter(tornillo->tornillo.getPrecio()>0.1).
+				mapToDouble(Tornillo::getPrecio).
+				sum();
+			
+			System.out.println(precioTotal);
+			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -61,6 +83,8 @@ public class FerreteriaMainEnumProperties {
 		} catch (IOException ioe) {
 			System.err.println(ioe.getMessage());
 		}
+		
+		
 		
 		
 		

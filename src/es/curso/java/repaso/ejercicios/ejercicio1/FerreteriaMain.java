@@ -17,7 +17,15 @@ public class FerreteriaMain {
 		
 		System.out.println(ferreteria1.getTornillos());
 		System.out.println(ferreteria2.getTornillos()[2].getPrecio());
+		
+		double precioTornillos=0;
+		for(Tornillo tornillo : ferreteria1.getTornillos()) {
+//			if(tornillo.getPrecio()>0.1) {
+				precioTornillos += tornillo.getPrecio();
+//			}
+		}
 
+		System.out.println(precioTornillos);
 	}
 
 }
