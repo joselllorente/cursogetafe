@@ -10,9 +10,9 @@ public class Alumno {
 	private boolean vip;
 	
 	//Constructores
-//	public Alumno () {
-//		
-//	}
+	public Alumno () {
+		this.nombre = "Juan";
+	}
 	
 	public Alumno (String dni, String nombre, String apellidos) {
 		this.dni = dni;

@@ -15,6 +15,9 @@ public class AlumnosMain {
 		Alumno alumno2 = new Alumno("B2","B","Apellido2");
 		alumno2.setNota(4);
 		Alumno alumno3 = new Alumno("C3","C","Apellido3",9);
+		Alumno alumno5 = alumno2;
+		Alumno alumno6 = new Alumno();
+		alumno6.setNombre("");
 		
 		//alumno1.estudiar();
 		alumno2.estudiar();

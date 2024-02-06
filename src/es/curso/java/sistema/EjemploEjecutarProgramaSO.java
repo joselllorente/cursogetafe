@@ -8,7 +8,7 @@ public class EjemploEjecutarProgramaSO {
 
         try {
             if (System.getProperty("os.name").toLowerCase().startsWith("windows")) {
-                proceso = rt.exec("notepad");
+                proceso = rt.exec("calc");
             } else if (System.getProperty("os.name").toLowerCase().startsWith("mac")) {
                 proceso = rt.exec("textedit");
             }else if (System.getProperty("os.name").toLowerCase().contains("nux") ||
