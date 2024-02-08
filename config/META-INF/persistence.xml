@@ -34,8 +34,13 @@
 <!--         <class>es.curso.java.examen.modulo2.parte4.Contrato</class> -->
 <!--         <class>es.curso.java.hibernate.relations.unounobidireccional.entities.Pais</class> -->
 <!--         <class>es.curso.java.hibernate.relations.unounobidireccional.entities.Presidente</class> -->
-        <class>es.curso.java.hibernate.relations.unomuchos.entities.Libro</class>
-        <class>es.curso.java.hibernate.relations.unomuchos.entities.Persona</class>
+<!--         <class>es.curso.java.hibernate.relations.unomuchos.entities.Libro</class> -->
+<!--         <class>es.curso.java.hibernate.relations.unomuchos.entities.Persona</class> -->
+		<class>es.curso.java.hibernate.advanced.compositekey.Empleado</class>
+		<class>es.curso.java.hibernate.advanced.herencia.unatabla.Persona</class>
+		<class>es.curso.java.hibernate.advanced.herencia.unatabla.Programador</class>
+		<class>es.curso.java.hibernate.advanced.herencia.unatabla.Tecnologo</class>
+		<class>es.curso.java.hibernate.advanced.herencia.unatabla.Tester</class>
         
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>

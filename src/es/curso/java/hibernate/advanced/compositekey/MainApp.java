@@ -26,9 +26,9 @@ public class MainApp {
 		
 		EntityManager em = JpaUtil.getEM("hibernateOracle");
 		EntityTransaction transaction = em.getTransaction();
-		transaction.begin();
-		em.persist(emp);
-		transaction.commit();
+//		transaction.begin();
+//		em.persist(emp);
+//		transaction.commit();
 		
 		transaction.begin();
 	    DireccionPK dirpk = new DireccionPK("Direccion1","28015");
@@ -37,8 +37,8 @@ public class MainApp {
 	    empleado1.setFechaAlta(new Date());
 	    em.persist(empleado1);
 		transaction.commit();
-	    
-	    System.exit(0);
+//	    
+//	    System.exit(0);
 	}
 
 }

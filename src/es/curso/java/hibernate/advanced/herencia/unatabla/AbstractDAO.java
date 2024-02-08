@@ -6,32 +6,35 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
+import es.curso.java.hibernate.util.JpaUtil;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
+
 public abstract class AbstractDAO
 {
-    private Session sesion;
+    private static EntityManager em;
 
     protected void iniciaOperacion()
     {
-        sesion = null;//
-        sesion.getTransaction().begin();
+    	em = JpaUtil.getEM("hibernateOracle");
     }
 
     protected void terminaOperacion()
     {
-        sesion.getTransaction().commit();
-        sesion.close();
+//        sesion.getTransaction().commit();
+//        sesion.close();
     }
 
-    protected void manejaExcepcion(HibernateException he) throws HibernateException
-    {
-        sesion.getTransaction().rollback();
-        throw he;
-    }
+//    protected void manejaExcepcion(HibernateException he) throws HibernateException
+//    {
+//        sesion.getTransaction().rollback();
+//        throw he;
+//    }
 
-    protected Session getSession()
-    {
-        return sesion;
-    }
+//    protected Session getSession()
+//    {
+//        return sesion;
+//    }
 
     public static void almacenaEntidad(Object entidad) throws HibernateException
     {
@@ -39,17 +42,15 @@ public abstract class AbstractDAO
 
         try
         {
-            dummy.iniciaOperacion();
-            dummy.getSession().saveOrUpdate(entidad);
-            dummy.getSession().flush();
+        	EntityTransaction transaction = em.getTransaction();
+        	transaction.begin();
+            em.persist(entidad);
+            transaction.commit();
+            
         }
         catch (HibernateException he)
         {
-            dummy.manejaExcepcion(he);
-        }
-        finally
-        {
-            dummy.terminaOperacion();
+           System.err.println("Error "+he.getMessage());
         }
     }
 
@@ -62,15 +63,11 @@ public abstract class AbstractDAO
         try
         {
             dummy.iniciaOperacion();
-            objetoRecuperado = (T) dummy.getSession().get(claseEntidad, id);
+            objetoRecuperado = (T) em.find(claseEntidad, id);
         }
         catch (HibernateException he)
         {
-            dummy.manejaExcepcion(he);
-        }
-        finally
-        {
-            dummy.terminaOperacion();
+            
         }
 
         return objetoRecuperado;
@@ -85,17 +82,12 @@ public abstract class AbstractDAO
         try
         {
             dummy.iniciaOperacion();
-            listaResultado = dummy.getSession().createQuery("FROM " + claseEntidad.getSimpleName()).list();
+            listaResultado = em.createQuery("FROM " + claseEntidad.getSimpleName()).getResultList();
         }
         catch (HibernateException he)
         {
-            dummy.manejaExcepcion(he);
+           
         }
-        finally
-        {
-            dummy.terminaOperacion();
-        }
-
         return listaResultado;
     }
 }
