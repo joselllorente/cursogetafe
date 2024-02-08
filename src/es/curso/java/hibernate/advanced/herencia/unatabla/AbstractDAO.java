@@ -36,12 +36,13 @@ public abstract class AbstractDAO
 //        return sesion;
 //    }
 
-    public static void almacenaEntidad(Object entidad) throws HibernateException
+    public static void almacenaEntidad(Persona entidad) throws HibernateException
     {
         AbstractDAO dummy = new AbstractDAO(){};
 
         try
         {
+        	em = JpaUtil.getEM("hibernateOracle");
         	EntityTransaction transaction = em.getTransaction();
         	transaction.begin();
             em.persist(entidad);
