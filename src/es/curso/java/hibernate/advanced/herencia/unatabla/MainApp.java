@@ -9,10 +9,7 @@ public class MainApp {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		List colores = new ArrayList();
-		colores.add("");
-		colores.add(1);
-		
+	
 		
 		Normal      normal       = new Normal("normal", 21, "Empleado");
 	    Tecnologo   tecnologo    = new Tecnologo("tecnologo", 24, 4);
